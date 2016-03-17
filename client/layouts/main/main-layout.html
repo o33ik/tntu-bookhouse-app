@@ -1,5 +1,18 @@
 <template name="mainLayout">
-    {{> top}}
-
-    {{> Template.dynamic template=content}}
+    <div class="container">
+        <div class="row">
+            {{> top}}
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                left menu
+            </div>
+            <div class="col-sm-7">
+                {{> Template.dynamic template=content}}
+            </div>
+            <div class="col-sm-3">
+                right news
+            </div>
+        </div>
+    </div>
 </template>

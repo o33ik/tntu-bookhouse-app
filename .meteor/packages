@@ -24,3 +24,6 @@ underscore
 momentjs:moment
 reactive-var
 manuel:reactivearray
+reywood:publish-composite
+accounts-base
+accounts-password

@@ -1,0 +1,2 @@
+Template.publicationsListMainView.onCreated(function () {
+});

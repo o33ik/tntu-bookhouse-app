@@ -1,0 +1,7 @@
+<template name="publicationsList">
+    <div class="row">
+        {{# each publications}}
+            {{> publicationListItem publication=this}}
+        {{/each}}
+    </div>
+</template>
