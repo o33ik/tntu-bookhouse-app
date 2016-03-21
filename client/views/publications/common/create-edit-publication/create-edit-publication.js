@@ -22,35 +22,25 @@ Template.createEditPublication.onCreated(function () {
             }
         };
 
-        var validateDocument = function (document) {
-            if (document.authorsIds.length == 0) {
-                console.log('Add at least one author!');
-                return false;
-            }
-            return true;
-        };
-
         var document = getValuesFromForm();
-        if (validateDocument(document)) {
-            var publicationId = self.data.publication._id;
-            if (publicationId) {
-                document._id = publicationId;
-                Meteor.call('editPublication', document, function (err, res) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        FlowRouter.go('viewPublication', {id: res});
-                    }
-                });
-            } else {
-                Meteor.call('createPublication', document, function (err, res) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        FlowRouter.go('viewPublication', {id: res});
-                    }
-                });
-            }
+        var publicationId = self.data.publication ? self.data.publication._id : null;
+        if (publicationId) {
+            document._id = publicationId;
+            Meteor.call('editPublication', document, function (err, res) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    FlowRouter.go('viewPublication', {id: res});
+                }
+            });
+        } else {
+            Meteor.call('createPublication', document, function (err, res) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    FlowRouter.go('viewPublication', {id: res});
+                }
+            });
         }
     }, 1000, true);
 
@@ -61,6 +51,10 @@ Template.createEditPublication.onCreated(function () {
 });
 
 Template.createEditPublication.onRendered(function () {
+    var self = this;
+    this.autorun(function () {
+        self.hasInvalidInput.set(self.addedAuthorsIds.list().length == 0);
+    });
 });
 
 Template.createEditPublication.helpers({

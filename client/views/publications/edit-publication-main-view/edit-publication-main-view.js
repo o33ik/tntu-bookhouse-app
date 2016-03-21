@@ -1,11 +1,14 @@
 Template.editPublicationMainView.onCreated(function () {
     var self = this;
 
+    this.redirect = _.after(function () {
+        console.log('You can\'t create publications!');
+        FlowRouter.go('publicationsList');
+    }, 1);
     this.autorun(function () {
-        //if (!AppTntu.canUser('editPublication', Meteor.userId())) {
-        //    console.log('You can\'t edit publications!');
-        //    FlowRouter.go('publicationsList');
-        //}
+        if (!AppTntu.canUser('editPublication', Meteor.userId())) {
+            self.redirect();
+        }
     });
 
     this.autorun(function () {

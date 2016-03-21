@@ -4,10 +4,10 @@ Meteor.startup(function () {
             case 'createPublication':
             case 'editPublication':
             case 'deletePublication':
-                return Roles.userIsInRole(userId, 'editPublication');
+                return Roles.userIsInRole(userId, 'admin', Roles.GLOBAL_GROUP);
             case 'addNews':
             case 'editNews':
-                return Roles.userIsInRole(userId, 'editNews');
+                return Roles.userIsInRole(userId, 'admin', Roles.GLOBAL_GROUP);
             default: throw new Meteor.Error('Invalid action!');
         }
     };

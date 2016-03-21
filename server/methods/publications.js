@@ -1,22 +1,24 @@
 Meteor.methods({
     'createPublication': function (publicationObject) {
-        //if (!AppTntu.canUser('createPublication', Meteor.userId())) {
-        //    throw new Meteor.Error('You don\'t have permissions to do this!');
-        //}
+        console.log(Meteor.userId(), this);
+        if (!AppTntu.canUser('createPublication', Meteor.userId())) {
+            throw new Meteor.Error('You don\'t have permissions to do this!');
+        }
 
         //check();
 
         publicationObject.createdAt = new Date();
-        publicationObject.createdBy = Meteor.userId() || 'id';
+        publicationObject.createdBy = Meteor.userId();
         return Publications.insert(publicationObject);
     },
 
     'editPublication': function (publicationObject) {
-        //if (!AppTntu.canUser('editPublication', Meteor.userId())) {
-        //    throw new Meteor.Error('You don\'t have permissions to do this!');
-        //}
+        console.log(Meteor.userId(), this);
+        if (!AppTntu.canUser('editPublication', Meteor.userId())) {
+            throw new Meteor.Error('You don\'t have permissions to do this!');
+        }
 
-        // check();
+        check(publicationObject, AppTntu.documentsCheckers.publication);
 
         publicationObject.lastUpdatedAt = new Date();
         publicationObject.lastUpdatedBy = Meteor.userId();
