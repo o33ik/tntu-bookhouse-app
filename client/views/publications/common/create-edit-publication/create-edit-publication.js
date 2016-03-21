@@ -3,29 +3,61 @@ Template.createEditPublication.onCreated(function () {
 
     this.onSubmit = _.debounce(function (event, tmpl) {
         var getValuesFromForm = function () {
-            var title = tmpl.$('#title').val();
-            var description = tmpl.$('#description').val();
-            var year = tmpl.$('#year').val();
-            var pagesCount = tmpl.$('#pages-count').val();
-            var content = tmpl.$('#content').val();
-            var price = tmpl.$('#pages-price').val();
+            var title = tmpl.$('#title').val().trim();
+            var description = tmpl.$('#description').val().trim();
+            var year = tmpl.$('#year').val().trim();
+            var pagesNumber = tmpl.$('#pages-number').val();
+            var content = tmpl.$('#content').val().trim();
+            var price = tmpl.$('#price').val().trim();
+            var authorsIds = self.addedAuthorsIds.array();
 
             return {
                 title: title,
                 description: description,
                 year: year,
-                pagesCount: pagesCount,
+                pagesNumber: pagesNumber,
                 content: content,
-                price: price
+                price: price,
+                authorsIds: authorsIds
             }
         };
 
-        console.log(getValuesFromForm());
+        var validateDocument = function (document) {
+            if (document.authorsIds.length == 0) {
+                console.log('Add at least one author!');
+                return false;
+            }
+            return true;
+        };
+
+        var document = getValuesFromForm();
+        if (validateDocument(document)) {
+            var publicationId = self.data.publication._id;
+            if (publicationId) {
+                document._id = publicationId;
+                Meteor.call('editPublication', document, function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        FlowRouter.go('viewPublication', {id: res});
+                    }
+                });
+            } else {
+                Meteor.call('createPublication', document, function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        FlowRouter.go('viewPublication', {id: res});
+                    }
+                });
+            }
+        }
     }, 1000, true);
 
     this.hasInvalidInput = new ReactiveVar(false);
 
-    this.addedAuthorsIds = new ReactiveArray([]);
+    var authorsIds = this.data.publication ? this.data.publication.authorsIds : [];
+    this.addedAuthorsIds = new ReactiveArray(authorsIds);
 });
 
 Template.createEditPublication.onRendered(function () {

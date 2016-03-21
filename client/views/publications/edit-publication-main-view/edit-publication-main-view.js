@@ -2,10 +2,10 @@ Template.editPublicationMainView.onCreated(function () {
     var self = this;
 
     this.autorun(function () {
-        if (!AppTntu.canUser('editPublication', Meteor.userId())) {
-            console.log('You can\'t edit publications!');
-            FlowRouter.go('publicationsList');
-        }
+        //if (!AppTntu.canUser('editPublication', Meteor.userId())) {
+        //    console.log('You can\'t edit publications!');
+        //    FlowRouter.go('publicationsList');
+        //}
     });
 
     this.autorun(function () {

@@ -1,3 +1,5 @@
 <template name="editPublicationMainView">
-    {{> createEditPublication publication=publication}}
+    {{#if publication}}
+        {{> createEditPublication publication=publication}}
+    {{/if}}
 </template>

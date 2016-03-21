@@ -3,6 +3,7 @@ Meteor.startup(function () {
         switch (action) {
             case 'createPublication':
             case 'editPublication':
+            case 'deletePublication':
                 return Roles.userIsInRole(userId, 'editPublication');
             case 'addNews':
             case 'editNews':
