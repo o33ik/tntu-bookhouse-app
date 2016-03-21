@@ -1,0 +1,22 @@
+<template name="addAuthor">
+    <div class="row">
+        <div class="input-field col s12">
+            <select id="author">
+                <option disabled selected>{{_ "chooseAuthor"}}</option>
+                {{#each allAuthors}}
+                    <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <label for="author">{{_ "bookAuthors"}}</label>
+        </div>
+    </div>
+
+    <div class="row">
+        {{#each addedAuthors}}
+            <div class="chip">
+                {{name}}
+                <i class="material-icons" id="{{_id}}">close</i>
+            </div>
+        {{/each}}
+    </div>
+</template>

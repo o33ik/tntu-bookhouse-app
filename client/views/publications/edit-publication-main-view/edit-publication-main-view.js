@@ -7,6 +7,11 @@ Template.editPublicationMainView.onCreated(function () {
             FlowRouter.go('publicationsList');
         }
     });
+
+    this.autorun(function () {
+        var publicationId = FlowRouter.getParam('id');
+        self.subscribe('publications', {_id: publicationId});
+    });
 });
 
 Template.editPublicationMainView.helpers({

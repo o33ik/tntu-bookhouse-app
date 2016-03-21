@@ -18,7 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 kadira:flow-router
 kadira:blaze-layout
-twbs:bootstrap
 alanning:roles
 underscore
 momentjs:moment
@@ -27,3 +26,7 @@ manuel:reactivearray
 reywood:publish-composite
 accounts-base
 accounts-password
+check
+tap:i18n-db
+materialize:materialize
+planettraining:material-design-icons-font

@@ -1,0 +1,15 @@
+{
+  "bookTitle":"Title",
+  "bookDescription": "Description",
+  "bookYear": "Year",
+  "bookPagesCount":"Pages",
+  "bookContent": "Content",
+  "bookPrice": "Price",
+  "bookImage": "Image",
+  "bookAuthors": "Authors",
+  "isbn": "ISBN",
+  "udk": "UDC",
+  "bbk": "BBK",
+
+  "chooseAuthor": "Choose the author"
+}

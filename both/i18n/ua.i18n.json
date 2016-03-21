@@ -1,0 +1,13 @@
+{
+  "bookTitle":"Назва",
+  "bookDescription": "Опис",
+  "bookYear": "Рік",
+  "bookPagesCount":"Кількість сторінок",
+  "bookContent": "Зміст",
+  "bookPrice": "Ціна",
+  "bookImage": "Зображення титулки",
+  "bookAuthors": "Автори",
+  "isbn": "ISBN",
+  "udk": "УДК",
+  "bbk": "ББК"
+}
