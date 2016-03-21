@@ -11,5 +11,7 @@
   "udk": "UDC",
   "bbk": "BBK",
 
-  "chooseAuthor": "Choose the author"
+  "chooseAuthor": "Choose the author",
+  "createNewAuthor": "Create new author",
+  "authorName": "Author's name"
 }

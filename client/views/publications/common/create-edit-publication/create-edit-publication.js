@@ -44,7 +44,7 @@ Template.createEditPublication.onCreated(function () {
         }
     }, 1000, true);
 
-    this.hasInvalidInput = new ReactiveVar(false);
+    this.allFieldsIsValid = new ReactiveVar(true);
 
     var authorsIds = this.data.publication ? this.data.publication.authorsIds : [];
     this.addedAuthorsIds = new ReactiveArray(authorsIds);
@@ -53,13 +53,18 @@ Template.createEditPublication.onCreated(function () {
 Template.createEditPublication.onRendered(function () {
     var self = this;
     this.autorun(function () {
-        self.hasInvalidInput.set(self.addedAuthorsIds.list().length == 0);
+        var $invalidInputs = self.$('input.invalid');
+        var allInputsIsValid = $invalidInputs.length == 0;
+
+        var hasAtLeastOneAuthor = self.addedAuthorsIds.list().length > 0;
+
+        self.allFieldsIsValid.set(allInputsIsValid && hasAtLeastOneAuthor);
     });
 });
 
 Template.createEditPublication.helpers({
-    hasInvalidInput: function () {
-        return Template.instance().hasInvalidInput.get();
+    allFieldsIsValid: function () {
+        return Template.instance().allFieldsIsValid.get();
     },
 
     addedAuthorsIds: function () {
@@ -89,7 +94,7 @@ Template.createEditPublication.events({
 
     'blur input': function (event, tmpl) {
         var $invalidInputs = tmpl.$('input.invalid');
-        tmpl.hasInvalidInput.set($invalidInputs.length > 0);
+        tmpl.allFieldsIsValid.set($invalidInputs.length == 0);
     },
     'click .cancel-button': function () {
         FlowRouter.go('publicationsList');

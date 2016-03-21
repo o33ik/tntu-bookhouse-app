@@ -1,11 +1,10 @@
 Meteor.methods({
     'createPublication': function (publicationObject) {
-        console.log(Meteor.userId(), this);
         if (!AppTntu.canUser('createPublication', Meteor.userId())) {
             throw new Meteor.Error('You don\'t have permissions to do this!');
         }
 
-        //check();
+        check(publicationObject, AppTntu.documentsCheckers.publication);
 
         publicationObject.createdAt = new Date();
         publicationObject.createdBy = Meteor.userId();

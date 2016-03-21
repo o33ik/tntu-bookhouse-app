@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input type="text" class="validate" id="title" required
-                            value="{{publication.title}}">
+                           value="{{publication.title}}">
                     <label for="title" class="{{#if publication.title}}active{{/if}}">
                         {{_ "bookTitle"}}
                     </label>
@@ -67,10 +67,10 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btn-muted cancel-button">Cancel</button>
             <button type="submit" class="btn btn-default"
-                    disabled="{{#if hasInvalidInput}}disabled{{/if}}">Submit
+                    disabled="{{#unless allFieldsIsValid}}disabled{{/unless}}">Submit
             </button>
+            <button type="button" class="btn btn-muted cancel-button">Cancel</button>
         </form>
     </div>
 </template>

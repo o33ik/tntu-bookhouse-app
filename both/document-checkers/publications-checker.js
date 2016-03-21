@@ -1,6 +1,6 @@
 var PublicationChecker = Match.Where(function (publication) {
     check(publication, {
-        _id: String,
+        _id: Match.Optional(String),
         title: String,
         description: Match.Optional(String),
         year: Match.Where(function (year) {

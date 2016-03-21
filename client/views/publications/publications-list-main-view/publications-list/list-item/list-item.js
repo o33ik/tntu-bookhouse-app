@@ -1,0 +1,2 @@
+Template.publicationListItem.onCreated(function () {
+});

@@ -37,5 +37,10 @@ Template.addAuthor.events({
 
     'click .chip i': function (event, tmpl) {
         tmpl.data.removeAuthor(event.target.id);
+    },
+
+    'click .create-new-author': function (event, tmpl) {
+        Blaze.renderWithData(Template.createAuthorModal,
+            {addAuthor: tmpl.data.addAuthor}, $('body')[0]);
     }
 });

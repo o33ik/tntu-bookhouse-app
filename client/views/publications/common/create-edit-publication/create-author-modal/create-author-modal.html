@@ -1,0 +1,22 @@
+<template name="createAuthorModal">
+    <div class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>{{_ "createNewAuthor"}}</h4>
+
+            <form>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="authorName" type="text" class="validate"
+                               required pattern="^[\w\s]+$">
+                        <label for="authorName">{{_ "authorName"}}</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <a class="modal-action modal-close cancel waves-effect waves-green btn-flat">{{_ "cancel"}}</a>
+            <a class="modal-action create-author waves-effect waves-green btn-flat">{{_ "create"}}</a>
+        </div>
+    </div>
+</template>
