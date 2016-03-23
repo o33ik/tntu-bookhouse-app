@@ -1,7 +1,11 @@
 <template name="publicationsList">
+    <div class="center-align">
+        <h4>{{_ "newPublications"}}</h4>
+    </div>
     <div class="row">
         {{# each publications}}
             {{> publicationListItem publication=this}}
+            <div class="divider"></div>
         {{/each}}
     </div>
 </template>

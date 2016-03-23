@@ -1,5 +1,44 @@
 <template name="publicationListItem">
     <div class="row">
-        <p>{{publication.title}}</p>
+        <div class="col s3">Image</div>
+        <div class="col s9">
+
+            <div class="row">
+                <p>{{> bookAuthorsWithLinkForFilter authorsIds=publication.authorsIds}} - {{publication.title}}</p>
+            </div>
+
+            <div class="row">
+                <p>{{publication.year}} - {{publication.pagesNumber}} {{_ "pages"}}</p>
+            </div>
+
+            {{#if publication.description}}
+                <div class="row">
+                    <p>
+                        {{publication.description}}
+                    </p>
+                </div>
+            {{/if}}
+
+            <div class="row">
+                <div class="col s4">
+                    <p>{{_ "isbn"}} {{publication.isbn}}</p>
+                </div>
+                <div class="col s4">
+                    <p>{{_ "bbk"}} {{publication.bbk}}</p>
+                </div>
+                <div class="col s4">
+                    <p>{{_ "udc"}} {{publication.udc}}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s3">
+                    <button type="button" class="btn btn-muted buy-button">{{_ "buy"}}</button>
+                </div>
+                <div class="col s5">
+                    <p>{{_ "bookPrice"}} {{publication.price}} {{_ "UAH"}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </template>

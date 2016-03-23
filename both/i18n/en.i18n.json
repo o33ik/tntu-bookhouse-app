@@ -8,10 +8,18 @@
   "bookImage": "Image",
   "bookAuthors": "Authors",
   "isbn": "ISBN",
-  "udk": "UDC",
+  "udc": "UDC",
   "bbk": "BBK",
 
   "chooseAuthor": "Choose the author",
   "createNewAuthor": "Create new author",
-  "authorName": "Author's name"
+  "authorName": "Author's name",
+
+
+  "newPublications": "New publications",
+
+  "pages": "Pages",
+
+  "buy": "Buy",
+  "UAH": "UAH"
 }

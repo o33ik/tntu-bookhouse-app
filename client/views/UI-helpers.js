@@ -14,3 +14,12 @@ UI.registerHelper('arrayContainsElement', function (arrayOrCursor, element) {
         return _.isEqual(itemInArray, element);
     });
 });
+
+UI.registerHelper('bookAuthorsNames', function (addedAuthorsIds) {
+    addedAuthorsIds = addedAuthorsIds || [];
+    var authorsNames = Authors.find({_id: {$in: addedAuthorsIds}})
+        .map(function (author) {
+            return author.name;
+        });
+    return authorsNames.join(', ');
+});

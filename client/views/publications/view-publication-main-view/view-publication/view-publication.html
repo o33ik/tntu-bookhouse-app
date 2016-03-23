@@ -1,5 +1,51 @@
 <template name="viewPublication">
     <div class="row">
-        view publication
+        <div class="col s12">
+
+            <div class="row">
+                <p>{{> bookAuthorsWithLinkForFilter authorsIds=publication.authorsIds}} - {{publication.title}}</p>
+            </div>
+
+            <div class="row">
+                <p>{{publication.year}} - {{publication.pagesNumber}} {{_ "pages"}}</p>
+            </div>
+
+            {{#if publication.description}}
+                <div class="row">
+                    <p>
+                        {{publication.description}}
+                    </p>
+                </div>
+            {{/if}}
+
+            <div class="row">
+                <h4 class="center-align">{{_ "bookContent"}}</h4>
+
+                <p>
+                    {{publication.content}}
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col s4">
+                    <p>{{_ "isbn"}} {{publication.isbn}}</p>
+                </div>
+                <div class="col s4">
+                    <p>{{_ "bbk"}} {{publication.bbk}}</p>
+                </div>
+                <div class="col s4">
+                    <p>{{_ "udc"}} {{publication.udc}}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s3">
+                    <button type="button" class="btn btn-muted buy-button">{{_ "buy"}}</button>
+                </div>
+                <div class="col s5">
+                    <p>{{_ "bookPrice"}} {{publication.price}} {{_ "UAH"}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </template>

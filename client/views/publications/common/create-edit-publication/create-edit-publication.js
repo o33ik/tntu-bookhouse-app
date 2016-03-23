@@ -10,6 +10,9 @@ Template.createEditPublication.onCreated(function () {
             var content = tmpl.$('#content').val().trim();
             var price = tmpl.$('#price').val().trim();
             var authorsIds = self.addedAuthorsIds.array();
+            var isbn = tmpl.$('#isbn').val().trim();
+            var udc = tmpl.$('#udc').val().trim();
+            var bbk = tmpl.$('#bbk').val().trim();
 
             return {
                 title: title,
@@ -18,7 +21,10 @@ Template.createEditPublication.onCreated(function () {
                 pagesNumber: pagesNumber,
                 content: content,
                 price: price,
-                authorsIds: authorsIds
+                authorsIds: authorsIds,
+                isbn: isbn,
+                udc: udc,
+                bbk: bbk
             }
         };
 

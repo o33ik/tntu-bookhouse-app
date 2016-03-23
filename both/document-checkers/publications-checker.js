@@ -17,7 +17,11 @@ var PublicationChecker = Match.Where(function (publication) {
         lastUpdatedBy: Match.Optional(String),
         createdAt: Match.Optional(Date),
         lastUpdatedAt: Match.Optional(Date),
-        authorsIds: [String]
+        authorsIds: [String],
+
+        isbn: String,
+        udc: String,
+        bbk: String
     });
 
     return true;
