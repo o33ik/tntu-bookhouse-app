@@ -32,21 +32,25 @@ Template.createEditPublication.onCreated(function () {
         var publicationId = self.data.publication ? self.data.publication._id : null;
         if (publicationId) {
             document._id = publicationId;
-            Meteor.call('editPublication', document, function (err, res) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    FlowRouter.go('viewPublication', {id: res});
-                }
-            });
+            var imageBase64 = self.isImageWasChanged ? self.imageBase64.get() : null;
+
+            Meteor.call('editPublication', document, imageBase64,
+                function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        FlowRouter.go('viewPublication', {id: res});
+                    }
+                });
         } else {
-            Meteor.call('createPublication', document, function (err, res) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    FlowRouter.go('viewPublication', {id: res});
-                }
-            });
+            Meteor.call('createPublication', document, self.imageBase64.get(),
+                function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        FlowRouter.go('viewPublication', {id: res});
+                    }
+                });
         }
     }, 1000, true);
 
@@ -54,6 +58,17 @@ Template.createEditPublication.onCreated(function () {
 
     var authorsIds = this.data.publication ? this.data.publication.authorsIds : [];
     this.addedAuthorsIds = new ReactiveArray(authorsIds);
+
+    this.isImageWasChanged = false;
+    this.imageBase64 = new ReactiveVar();
+    this.autorun(function(){
+        if (self.data.publication && self.data.publication.imageId) {
+            var image = Images.findOne(self.data.publication.imageId);
+            if (image) {
+                self.imageBase64.set(image.url());
+            }
+        }
+    });
 });
 
 Template.createEditPublication.onRendered(function () {
@@ -89,6 +104,10 @@ Template.createEditPublication.helpers({
         return function (id) {
             tmpl.addedAuthorsIds.remove(id);
         }
+    },
+
+    imageBase64: function () {
+        return Template.instance().imageBase64.get();
     }
 });
 
@@ -104,5 +123,21 @@ Template.createEditPublication.events({
     },
     'click .cancel-button': function () {
         FlowRouter.go('publicationsList');
+    },
+
+    'change #image': function (event, tmpl) {
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            tmpl.imageBase64.set(event.target.result);
+            tmpl.isImageWasChanged = true;
+        };
+
+        reader.readAsDataURL(event.target.files[0]);
+    },
+
+    'click .image-preview': function (event, tmpl) {
+        var parentNode = $('body')[0];
+        Blaze.renderWithData(Template.previewImageModal,
+            {imageURL: tmpl.imageBase64.get()}, parentNode);
     }
 });

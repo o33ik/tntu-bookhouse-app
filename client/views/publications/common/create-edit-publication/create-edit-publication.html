@@ -1,5 +1,5 @@
 <template name="createEditPublication">
-    <div class="row">
+    <div class="row edit-publication-wrapper">
         <form id="create-edit-publication-form">
             <div class="row">
                 <div class="input-field col s12">
@@ -19,6 +19,24 @@
                         {{_ "Description"}}
                     </label>
                 </div>
+            </div>
+
+            <div class="row">
+                <div class="file-field input-field col
+                {{#if imageBase64}}s10{{else}}s12{{/if}}">
+                    <div class="btn">
+                        <span>{{_ "bookImage"}}</span>
+                        <input type="file" id="image" accept="image/*">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+                {{#if imageBase64}}
+                    <div class="col s2">
+                        <img src="{{imageBase64}}" class="image-preview">
+                    </div>
+                {{/if}}
             </div>
 
             {{> addAuthor
@@ -96,7 +114,7 @@
                     </label>
                 </div>
             </div>
-            
+
             <button type="submit" class="btn btn-default"
                     disabled="{{#unless allFieldsIsValid}}disabled{{/unless}}">Submit
             </button>

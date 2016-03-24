@@ -30,3 +30,6 @@ check
 tap:i18n-db
 materialize:materialize
 planettraining:material-design-icons-font
+less
+cfs:standard-packages
+cfs:gridfs

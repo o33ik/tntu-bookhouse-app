@@ -10,6 +10,11 @@ Meteor.publishComposite('publications', function (query, options) {
                 find: function (publication) {
                     return Authors.find({_id: {$in: publication.authorsIds}});
                 }
+            },
+            {
+                find: function (publication) {
+                    return Images.find({_id: publication.imageId});
+                }
             }
         ]
     }
