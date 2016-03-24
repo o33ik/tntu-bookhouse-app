@@ -33,8 +33,9 @@ Template.createEditPublication.onCreated(function () {
         if (publicationId) {
             document._id = publicationId;
             var imageBase64 = self.isImageWasChanged ? self.imageBase64.get() : null;
+            var pdfBase64 = self.isPdfWasChanged ? self.pdfBase64.get() : null;
 
-            Meteor.call('editPublication', document, imageBase64,
+            Meteor.call('editPublication', document, imageBase64, pdfBase64,
                 function (err, res) {
                     if (err) {
                         console.log(err);
@@ -44,7 +45,7 @@ Template.createEditPublication.onCreated(function () {
                 });
         } else {
             Meteor.call('createPublication', document, self.imageBase64.get(),
-                function (err, res) {
+                self.pdfBase64.get(), function (err, res) {
                     if (err) {
                         console.log(err);
                     } else {
@@ -61,11 +62,22 @@ Template.createEditPublication.onCreated(function () {
 
     this.isImageWasChanged = false;
     this.imageBase64 = new ReactiveVar();
-    this.autorun(function(){
+    this.autorun(function () {
         if (self.data.publication && self.data.publication.imageId) {
             var image = Images.findOne(self.data.publication.imageId);
             if (image) {
                 self.imageBase64.set(image.url());
+            }
+        }
+    });
+
+    this.isPdfWasChanged = false;
+    this.pdfBase64 = new ReactiveVar();
+    this.autorun(function () {
+        if (self.data.publication && self.data.publication.pdfId) {
+            var pdf = PublicationsPdf.findOne(self.data.publication.pdfId);
+            if (pdf) {
+                self.pdfBase64.set(pdf.url());
             }
         }
     });
@@ -108,6 +120,10 @@ Template.createEditPublication.helpers({
 
     imageBase64: function () {
         return Template.instance().imageBase64.get();
+    },
+
+    pdfDoc64: function () {
+        return Template.instance().pdfBase64.get();
     }
 });
 
@@ -139,5 +155,15 @@ Template.createEditPublication.events({
         var parentNode = $('body')[0];
         Blaze.renderWithData(Template.previewImageModal,
             {imageURL: tmpl.imageBase64.get()}, parentNode);
+    },
+
+    'change #pdf': function (event, tmpl) {
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            tmpl.pdfBase64.set(event.target.result);
+            tmpl.isPdfWasChanged = true;
+        };
+
+        reader.readAsDataURL(event.target.files[0]);
     }
 });

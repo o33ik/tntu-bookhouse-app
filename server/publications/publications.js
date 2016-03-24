@@ -15,6 +15,11 @@ Meteor.publishComposite('publications', function (query, options) {
                 find: function (publication) {
                     return Images.find({_id: publication.imageId});
                 }
+            },
+            {
+                find: function (publication) {
+                    return PublicationsPdf.find({_id: publication.pdfId});
+                }
             }
         ]
     }
