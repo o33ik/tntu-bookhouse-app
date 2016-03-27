@@ -1,0 +1,54 @@
+<template name="topNavBar">
+    <nav>
+        <div class="row">
+            <div class="col s2 m3">
+                <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i
+                        class="mdi-navigation-menu"></i></a>
+                <a href="#" class="brand-logo hide-on-med-and-down">Logo</a>
+            </div>
+
+            <div class="col s10 m6 no-padding">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" required>
+                        <label for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <ul id="slide-out" class="side-nav">
+        <li><a>{{_ "allPublications"}}</a></li>
+
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header">
+                        {{_ "sciencePublications"}}
+                        <i class="mdi-navigation-arrow-drop-down"></i>
+                    </a>
+
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a>{{_ "monographs"}}</a></li>
+                            <li><a>{{_ "conferenceMaterials"}}</a></li>
+                            <li><a>{{_ "other"}}</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li><a>{{_ "studiesPublications"}}</a></li>
+        <li><a>{{_ "socioPoliticalPublications"}}</a></li>
+        <li><a>{{_ "literaryAndArtPublication"}}</a></li>
+
+        <li class="divider"></li>
+
+        <li><a>{{_ "about"}}</a></li>
+        <li><a>{{_ "authorsInformation"}}</a></li>
+        <li><a>{{_ "customerInformation"}}</a></li>
+    </ul>
+</template>

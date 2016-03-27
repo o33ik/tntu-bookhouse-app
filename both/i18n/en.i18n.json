@@ -27,5 +27,21 @@
 
   "addNew": "Add new",
   "edit": "Edit",
-  "delete": "Delete"
+  "delete": "Delete",
+
+  "about":"About us",
+  "authorsInformation":"For authors",
+  "customerInformation":"For customers",
+
+  "publications": "Publications",
+  "allPublications": "All",
+
+  "sciencePublications": "Science",
+  "monographs": "Monographs",
+  "conferenceMaterials": "Conference materials",
+  "other": "Other",
+
+  "studiesPublications": "Studies",
+  "socioPoliticalPublications": "Socio-political",
+  "literaryAndArtPublication": "Literary and art"
 }

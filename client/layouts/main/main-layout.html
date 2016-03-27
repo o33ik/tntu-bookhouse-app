@@ -1,16 +1,13 @@
 <template name="mainLayout">
     <div class="container-fluid">
         <div class="row">
-            {{> top}}
+            {{> topNavBar}}
         </div>
         <div class="row">
-            <div class="col l2 m3 hide-on-small-only">
-                left menu
-            </div>
-            <div class="col s12 m9 l7">
+            <div class="col s12 l10">
                 {{> Template.dynamic template=content}}
             </div>
-            <div class="col l3 hide-on-med-and-down">
+            <div class="col l2 hide-on-med-and-down">
                 right news
             </div>
         </div>

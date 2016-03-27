@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d53dda61-69c9-473b-ad70-edb7ae3dcec8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/shared/top-nav-bar/top-nav-bar.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/shared/top-nav-bar/top-nav-bar.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/client/shared/top/header/header.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/client/shared/top/menu/top-menu.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/client/shared/top/top.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/i18n/en.i18n.json" afterPath="$PROJECT_DIR$/both/i18n/en.i18n.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/layouts/main/main-layout.html" afterPath="$PROJECT_DIR$/client/layouts/main/main-layout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="react-flow-router.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,38 +33,10 @@
       <file leaf-file-name="en.i18n.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/both/i18n/en.i18n.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.5">
-              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="publications-list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/publications-list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.892858">
-              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="publications-list.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/publications-list.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list-item.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/list-item/list-item.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.392857">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            <state vertical-scroll-proportion="-10.142858">
+              <caret line="31" column="8" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="8" />
+              <caret line="32" column="21" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="21" />
+              <caret line="33" column="22" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -73,26 +52,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view-publication-main-view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication-main-view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6785714">
-              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="publications.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/methods/publications.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="22" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="view-publication.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -103,21 +62,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main-layout.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main-layout.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/layouts/main/main-layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2733813">
-              <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+            <state vertical-scroll-proportion="-2.0357144">
+              <caret line="3" column="25" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-permissions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/both/user-permissions.js">
+      <file leaf-file-name="ua.i18n.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/both/i18n/ua.i18n.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="top-nav-bar.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/shared/top-nav-bar/top-nav-bar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.13636364">
+              <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="top-nav-bar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/shared/top-nav-bar/top-nav-bar.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="33" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="33" />
+              <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -131,13 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/views/publications/list/publications-list.html" />
-        <option value="$PROJECT_DIR$/client/shared/top/menu/top-menu.html" />
-        <option value="$PROJECT_DIR$/client/shared/top/header/header.html" />
-        <option value="$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication-main-view.js" />
-        <option value="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list-main-view.html" />
-        <option value="$PROJECT_DIR$/both/i18n/ua.i18n.json" />
-        <option value="$PROJECT_DIR$/both/collections/authors.js" />
         <option value="$PROJECT_DIR$/server/publications/authors.js" />
         <option value="$PROJECT_DIR$/server/publications/news.js" />
         <option value="$PROJECT_DIR$/client/layouts/main/main-layout.js" />
@@ -178,10 +150,17 @@
         <option value="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/publications-list.js" />
         <option value="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/publications-list.html" />
         <option value="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/list-item/list-item.html" />
-        <option value="$PROJECT_DIR$/both/i18n/en.i18n.json" />
         <option value="$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.html" />
         <option value="$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.js" />
+        <option value="$PROJECT_DIR$/client/shared/left-menu/left-menu.html" />
+        <option value="$PROJECT_DIR$/both/i18n/en.i18n.json" />
+        <option value="$PROJECT_DIR$/client/shared/top/menu/top-menu.js" />
+        <option value="$PROJECT_DIR$/client/shared/top/menu/top-menu.html" />
         <option value="$PROJECT_DIR$/client/layouts/main/main-layout.html" />
+        <option value="$PROJECT_DIR$/client/shared/top/top.html" />
+        <option value="$PROJECT_DIR$/client/shared/top/topNavBar.js" />
+        <option value="$PROJECT_DIR$/client/shared/top-nav-bar/top-nav-bar.js" />
+        <option value="$PROJECT_DIR$/client/shared/top-nav-bar/top-nav-bar.html" />
       </list>
     </option>
   </component>
@@ -661,6 +640,28 @@
               <option name="myItemId" value="shared" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="top-nav-bar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web-site-for-university-publish(diploma)" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web-site-for-university-publish(diploma)" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shared" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -887,7 +888,7 @@
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32907802" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32765958" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32907802" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -922,53 +923,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/shared/top/menu/top-menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/both/i18n/ua.i18n.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/publications/create-publication-main-view/create-publication-main-view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="41" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/both/collections/authors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/publications/news.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/publications/authors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="53" selection-start-line="0" selection-start-column="53" selection-end-line="2" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/layouts/main/main-layout.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1270,14 +1224,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/both/i18n/en.i18n.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.5">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication-main-view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6785714">
@@ -1318,6 +1264,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/both/i18n/ua.i18n.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/layouts/main/main-layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0357144">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1326,10 +1288,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/layouts/main/main-layout.html">
+    <entry file="file://$PROJECT_DIR$/client/shared/top-nav-bar/top-nav-bar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2733813">
-          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/both/i18n/en.i18n.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.142858">
+          <caret line="31" column="8" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="8" />
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="21" />
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/shared/top-nav-bar/top-nav-bar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13636364">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
           <folding />
         </state>
       </provider>
