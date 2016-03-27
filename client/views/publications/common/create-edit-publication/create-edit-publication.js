@@ -148,7 +148,11 @@ Template.createEditPublication.events({
             tmpl.isImageWasChanged = true;
         };
 
-        reader.readAsDataURL(event.target.files[0]);
+        if (event.target.files[0]) {
+            reader.readAsDataURL(event.target.files[0]);
+        } else {
+            tmpl.imageBase64.set(null);
+        }
     },
 
     'click .image-preview': function (event, tmpl) {
@@ -164,6 +168,10 @@ Template.createEditPublication.events({
             tmpl.isPdfWasChanged = true;
         };
 
-        reader.readAsDataURL(event.target.files[0]);
+        if (event.target.files[0]) {
+            reader.readAsDataURL(event.target.files[0]);
+        } else {
+            tmpl.pdfBase64.set(null);
+        }
     }
 });

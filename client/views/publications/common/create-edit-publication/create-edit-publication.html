@@ -26,7 +26,8 @@
                 {{#if imageBase64}}s10{{else}}s12{{/if}}">
                     <div class="btn">
                         <span>{{_ "bookImage"}}</span>
-                        <input type="file" id="image" accept="image/*">
+                        <input type="file" id="image" accept="image/*"
+                               required="{{#unless imageBase64}}required{{/unless}}">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">
@@ -44,7 +45,8 @@
                 {{#if pdfDoc64}}s10{{else}}s12{{/if}}">
                     <div class="btn">
                         <span>{{_ "bookPdf"}}</span>
-                        <input type="file" id="pdf" accept="application/pdf">
+                        <input type="file" id="pdf" accept="application/pdf"
+                               required="{{#unless pdfDoc64}}required{{/unless}}">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">

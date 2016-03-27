@@ -23,3 +23,8 @@ UI.registerHelper('bookAuthorsNames', function (addedAuthorsIds) {
         });
     return authorsNames.join(', ');
 });
+
+UI.registerHelper('canUser', function (action, group) {
+    var userId = Meteor.userId();
+    return AppTntu.canUser(action, userId, group);
+});

@@ -23,5 +23,9 @@
   "pages": "Pages",
 
   "buy": "Buy",
-  "UAH": "UAH"
+  "UAH": "UAH",
+
+  "addNew": "Add new",
+  "edit": "Edit",
+  "delete": "Delete"
 }

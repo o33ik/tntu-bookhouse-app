@@ -3,7 +3,22 @@
         <div class="col s12">
 
             <div class="row">
-                <p>{{> bookAuthorsWithLinkForFilter authorsIds=publication.authorsIds}} - {{publication.title}}</p>
+                <div class="col {{#if canUser "editPublication"}}s9{{else}}s12{{/if}} no-padding">
+                    <div class="row">
+                        <p>{{> bookAuthorsWithLinkForFilter authorsIds=publication.authorsIds}}
+                            - {{publication.title}}</p>
+                    </div>
+                </div>
+
+                {{#if canUser "editPublication"}}
+                    <div class="col s3">
+                        <a class="dropdown-button btn" data-activates="settings-dropdown">Settings</a>
+                        <ul id="settings-dropdown" class="dropdown-content">
+                            <li class="edit-publication-button"><a>{{_ "edit"}}</a></li>
+                            <li class="delete-publication-button"><a>{{_ "delete"}}</a></li>
+                        </ul>
+                    </div>
+                {{/if}}
             </div>
 
             <div class="row">

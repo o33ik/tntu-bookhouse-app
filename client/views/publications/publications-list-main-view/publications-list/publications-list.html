@@ -1,11 +1,21 @@
 <template name="publicationsList">
-    <div class="center-align">
-        <h4>{{_ "newPublications"}}</h4>
-    </div>
-    <div class="row">
-        {{# each publications}}
-            {{> publicationListItem publication=this}}
-            <div class="divider"></div>
-        {{/each}}
+    <div class="publications-list-wrapper">
+        <div class="center-align">
+            <h4>{{_ "newPublications"}}</h4>
+        </div>
+        {{#if canUser "createPublication"}}
+            <div class="row create-publication-button-wrapper">
+                <a class="waves-effect waves-light btn create-publication-button">
+                    <i class="material-icons left">add</i>
+                    {{_ "addNew"}}
+                </a>
+            </div>
+        {{/if}}
+        <div class="row publications-list">
+            {{# each publications}}
+                {{> publicationListItem publication=this}}
+                <div class="divider"></div>
+            {{/each}}
+        </div>
     </div>
 </template>
