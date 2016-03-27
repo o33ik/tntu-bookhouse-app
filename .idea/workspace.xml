@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d53dda61-69c9-473b-ad70-edb7ae3dcec8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/styles/publications-list.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/UI-helpers.js" afterPath="$PROJECT_DIR$/client/views/UI-helpers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/publications/common/create-edit-publication/create-edit-publication.html" afterPath="$PROJECT_DIR$/client/views/publications/common/create-edit-publication/create-edit-publication.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/publications/common/create-edit-publication/create-edit-publication.js" afterPath="$PROJECT_DIR$/client/views/publications/common/create-edit-publication/create-edit-publication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/both/i18n/en.i18n.json" afterPath="$PROJECT_DIR$/both/i18n/en.i18n.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/list-item/list-item.html" afterPath="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/list-item/list-item.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/list-item/list-item.js" afterPath="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/list-item/list-item.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/publications-list.html" afterPath="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/publications-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/publications-list.js" afterPath="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/publications-list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.html" afterPath="$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.js" afterPath="$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/layouts/main/main-layout.html" afterPath="$PROJECT_DIR$/client/layouts/main/main-layout.html" />
     </list>
     <ignored path="react-flow-router.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,11 +93,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view-publication.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="view-publication.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5730337">
-              <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main-layout.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/layouts/main/main-layout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2733813">
+              <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -121,16 +118,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="7" column="33" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="publications.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/routes/publications.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="26" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -163,7 +150,6 @@
         <option value="$PROJECT_DIR$/client/views/publications/common/create-edit-publication/create-author-modal/create-author-modal.html" />
         <option value="$PROJECT_DIR$/client/views/publications/common/create-edit-publication/create-author-modal/create-author-modal.js" />
         <option value="$PROJECT_DIR$/server/methods/authors.js" />
-        <option value="$PROJECT_DIR$/client/layouts/main/main-layout.html" />
         <option value="$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication-main-view.html" />
         <option value="$PROJECT_DIR$/client/views/publications/publications-list-main-view/publications-list/list-item/authors/authors.html" />
         <option value="$PROJECT_DIR$/lib/routes/publications.js" />
@@ -195,6 +181,7 @@
         <option value="$PROJECT_DIR$/both/i18n/en.i18n.json" />
         <option value="$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.html" />
         <option value="$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.js" />
+        <option value="$PROJECT_DIR$/client/layouts/main/main-layout.html" />
       </list>
     </option>
   </component>
@@ -1030,14 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/layouts/main/main-layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.464286">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/routes/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1341,8 +1320,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/views/publications/view-publication-main-view/view-publication/view-publication.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5730337">
-          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/layouts/main/main-layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2733813">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
           <folding />
         </state>
       </provider>
