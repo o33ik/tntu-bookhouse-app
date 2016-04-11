@@ -6,7 +6,7 @@
                     <input type="text" class="validate" id="title" required
                            value="{{publication.title}}">
                     <label for="title" class="{{#if publication.title}}active{{/if}}">
-                        {{_ "Title"}}
+                        {{_ "bookTitle"}}
                     </label>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                     <textarea rows="3" class="validate materialize-textarea"
                               id="description" value="{{publication.description}}"></textarea>
                     <label for="description" class="{{#if publication.description}}active{{/if}}">
-                        {{_ "Description"}}
+                        {{_ "bookDescription"}}
                     </label>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     <input type="text" class="validate" id="year" pattern="\s*\d{4}\s*"
                            required value="{{publication.year}}">
                     <label for="year" class="{{#if publication.year}}active{{/if}}">
-                        {{_ "Year"}}
+                        {{_ "bookYear"}}
                     </label>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                     <input type="number" class="validate" id="pages-number" min="1"
                            required value="{{publication.pagesNumber}}">
                     <label for="pages-number" class="{{#if publication.pagesNumber}}active{{/if}}">
-                        {{_ "PagesNumber"}}
+                        {{_ "bookPagesNumber"}}
                     </label>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                     <textarea rows="3" class="validate materialize-textarea"
                               id="content" value="{{publication.content}}"></textarea>
                     <label for="content" class="{{#if publication.content}}active{{/if}}">
-                        {{_ "Content"}}
+                        {{_ "bookContent"}}
                     </label>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                            pattern="^\s*\d+(\.\d{2})?\s*$" required
                            value="{{publication.price}}">
                     <label for="price" class="{{#if publication.price}}active{{/if}}">
-                        {{_ "Price"}}
+                        {{_ "bookPrice"}}
                     </label>
                 </div>
             </div>

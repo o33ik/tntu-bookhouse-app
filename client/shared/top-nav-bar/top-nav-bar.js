@@ -1,6 +1,6 @@
 Template.topNavBar.onRendered(function () {
     this.$(".button-collapse").sideNav();
-    this. $('.collapsible').collapsible();
+    this.$('.collapsible').collapsible();
 });
 
 Template.topNavBar.helpers({
@@ -9,4 +9,13 @@ Template.topNavBar.helpers({
     }
 });
 
-Template.topNavBar.events({});
+Template.topNavBar.events({
+    'click .flag-icon': function (event, tmpl) {
+        var selectedLanguage = event.currentTarget.id;
+        TAPi18n.setLanguage(selectedLanguage);
+        //Cookie.remove('lg');
+        //Cookie.set('lg', selectedLanguage, {
+        //    expires: 30
+        //});
+    }
+});

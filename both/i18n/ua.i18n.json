@@ -2,12 +2,17 @@
   "bookTitle":"Назва",
   "bookDescription": "Опис",
   "bookYear": "Рік",
-  "bookPagesCount":"Кількість сторінок",
+  "bookPagesNumber":"Кількість сторінок",
   "bookContent": "Зміст",
-  "bookPrice": "Ціна",
-  "bookImage": "Зображення титулки",
+  "bookPrice": "Вартість",
   "bookAuthors": "Автори",
   "isbn": "ISBN",
-  "udk": "УДК",
-  "bbk": "ББК"
+  "udc": "УДК",
+  "bbk": "ББК",
+  "bookImage": "Зображення обкладинки",
+  "bookPdf": "PDF зразок книги",
+
+  "chooseAuthor": "Виберіть автора",
+  "createNewAuthor": "Створити нового автора",
+  "authorName": "І’мя Автора"
 }

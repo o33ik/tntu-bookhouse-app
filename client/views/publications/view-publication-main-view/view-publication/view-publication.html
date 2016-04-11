@@ -1,24 +1,28 @@
 <template name="viewPublication">
-    <div class="row">
+    <div class="row view-publication-wrapper">
         <div class="col s12">
 
-            <div class="row">
-                <div class="col {{#if canUser "editPublication"}}s9{{else}}s12{{/if}} no-padding">
-                    <div class="row">
-                        <p>{{> bookAuthorsWithLinkForFilter authorsIds=publication.authorsIds}}
-                            - {{publication.title}}</p>
-                    </div>
+            {{#if canUser "editPublication"}}
+                <div class="settings-button-wrapper">
+                    <a class="dropdown-button pointer" data-activates="settings-dropdown">
+                        <i class="material-icons">settings</i>
+                    </a>
+                    <ul id="settings-dropdown" class="dropdown-content">
+                        <li class="edit-publication-button"><a>{{_ "edit"}}</a></li>
+                        <li class="delete-publication-button"><a>{{_ "delete"}}</a></li>
+                    </ul>
                 </div>
+            {{/if}}
 
-                {{#if canUser "editPublication"}}
-                    <div class="col s3">
-                        <a class="dropdown-button btn" data-activates="settings-dropdown">Settings</a>
-                        <ul id="settings-dropdown" class="dropdown-content">
-                            <li class="edit-publication-button"><a>{{_ "edit"}}</a></li>
-                            <li class="delete-publication-button"><a>{{_ "delete"}}</a></li>
-                        </ul>
-                    </div>
-                {{/if}}
+            <div class="row">
+                <div class="col s12 no-padding">
+                    <p class="center-align">{{publication.title}}</p>
+
+                    <p class="center-align">{{> bookAuthorsWithLinkForFilter
+                    authorsIds=publication.authorsIds
+                    }}
+                    </p>
+                </div>
             </div>
 
             <div class="row">

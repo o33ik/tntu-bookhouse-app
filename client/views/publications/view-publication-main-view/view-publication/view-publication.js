@@ -10,7 +10,8 @@ Template.viewPublication.onRendered(function () {
                         inDuration: 300,
                         outDuration: 225,
                         gutter: 0,
-                        belowOrigin: true
+                        belowOrigin: true,
+                        alignment: 'right'
                     }
                 );
             });

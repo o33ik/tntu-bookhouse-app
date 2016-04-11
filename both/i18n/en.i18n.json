@@ -1,11 +1,10 @@
 {
-  "bookTitle":"Title",
+  "bookTitle": "Title",
   "bookDescription": "Description",
   "bookYear": "Year",
-  "bookPagesNumber":"Number of pages",
+  "bookPagesNumber": "Number of pages",
   "bookContent": "Content",
   "bookPrice": "Price",
-  "bookImage": "Image",
   "bookAuthors": "Authors",
   "isbn": "ISBN",
   "udc": "UDC",
