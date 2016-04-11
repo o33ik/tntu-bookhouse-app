@@ -26,7 +26,7 @@ Template.addAuthor.helpers({
         return Authors.find({_id: {$in: this.addedAuthorsIds}});
     },
     allAuthors: function () {
-        return Authors.find({_id: {$nin: this.addedAuthorsIds}});
+        return Authors.find({_id: {$nin: this.addedAuthorsIds}}, {sort: {name: 1}});
     }
 });
 
