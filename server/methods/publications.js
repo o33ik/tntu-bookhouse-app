@@ -4,7 +4,7 @@ Meteor.methods({
             throw new Meteor.Error('You don\'t have permissions to do this!');
         }
 
-        //check(publicationObject, AppTntu.documentsCheckers.publication);
+        check(publicationObject, AppTntu.documentsCheckers.publication);
 
         if (imageBase64) {
             var imageId = Images.insert(imageBase64)._id;
@@ -27,7 +27,6 @@ Meteor.methods({
             throw new Meteor.Error('You don\'t have permissions to do this!');
         }
 
-        console.log(publicationObject);
         check(publicationObject, AppTntu.documentsCheckers.publication);
 
         if (imageBase64) {
@@ -52,9 +51,5 @@ Meteor.methods({
         }
 
         return Publications.remove(publicationId);
-    },
-
-    'allPublicationsCount': function (query) {
-        return Publications.find(query).count();
     }
 });
