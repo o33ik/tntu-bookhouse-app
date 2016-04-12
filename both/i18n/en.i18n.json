@@ -11,10 +11,13 @@
   "bbk": "BBK",
   "bookImage": "Image",
   "bookPdf": "PDF document",
+  "bookExample": "Example",
 
   "chooseAuthor": "Choose the author",
   "createNewAuthor": "Create new author",
   "authorName": "Author's name",
+
+  "chooseType": "Choose a type",
 
 
   "newPublications": "New publications",

@@ -1,28 +1,37 @@
 <template name="publicationListItem">
     <div class="row list-item">
         <div class="col s3 publication-image-wrapper">
-            <img class="publication-image" src="{{publicationImage}}">
+            <img class="publication-image" src="{{getPublImageUrlFromId publication.imageId}}">
         </div>
         <div class="col s9">
 
-            <div class="row">
-                <p>{{> bookAuthorsWithLinkForFilter authorsIds=publication.authorsIds}} -
-                    <span class="publication-title pointer underline">{{publication.title}}</span></p>
+            <div class="row no-margin-bottom">
+                <p class="no-margin-bottom publication-title pointer
+                underline-hover">{{publication.title}}, {{publication.year}}</p>
+
+                <p class="no-margin-bottom">{{> bookAuthorsWithLinkForFilter
+                authorsIds=publication.authorsIds}}</p>
             </div>
 
-            <div class="row">
-                <p>{{publication.year}} - {{publication.pagesNumber}} {{_ "pages"}}</p>
+            <div class="row no-margin-bottom">
+                <p class="no-margin-bottom">{{publication.pagesNumber}} {{_ "pages"}}</p>
             </div>
 
             {{#if publication.description}}
-                <div class="row">
-                    <p>
+                <div class="row no-margin-bottom">
+                    <p class="no-margin-bottom">
                         {{publication.description}}
                     </p>
                 </div>
             {{/if}}
 
-            <div class="row">
+            <div class="row no-margin-bottom">
+                <p class="no-margin-bottom">
+                    <a href="{{getPublPdfUrlFromId publication.pdfId}}" target="_blank">{{_ "bookExample"}}</a>
+                </p>
+            </div>
+
+            <div class="row no-margin-bottom">
                 <div class="col s4">
                     <p>{{_ "isbn"}} {{publication.isbn}}</p>
                 </div>
@@ -34,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row no-margin-bottom">
                 <div class="col s6">
                     <a class="waves-effect waves-light btn buy-button">
                         <i class="material-icons left">shopping_cart</i>

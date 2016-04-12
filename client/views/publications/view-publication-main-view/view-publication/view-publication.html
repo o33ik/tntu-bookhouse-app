@@ -1,68 +1,92 @@
 <template name="viewPublication">
     <div class="row view-publication-wrapper">
-        <div class="col s12">
+        <div class="row">
+            <div class="col s3">
+                <img class="publication-image" src="{{getPublImageUrlFromId publication.imageId}}">
+            </div>
+            <div class="col s9">
+                {{#if canUser "editPublication"}}
+                    <div class="settings-button-wrapper">
+                        <a class="dropdown-button pointer" data-activates="settings-dropdown">
+                            <i class="material-icons">settings</i>
+                        </a>
+                        <ul id="settings-dropdown" class="dropdown-content">
+                            <li class="edit-publication-button"><a>{{_ "edit"}}</a></li>
+                            <li class="delete-publication-button"><a>{{_ "delete"}}</a></li>
+                        </ul>
+                    </div>
+                {{/if}}
 
-            {{#if canUser "editPublication"}}
-                <div class="settings-button-wrapper">
-                    <a class="dropdown-button pointer" data-activates="settings-dropdown">
-                        <i class="material-icons">settings</i>
-                    </a>
-                    <ul id="settings-dropdown" class="dropdown-content">
-                        <li class="edit-publication-button"><a>{{_ "edit"}}</a></li>
-                        <li class="delete-publication-button"><a>{{_ "delete"}}</a></li>
-                    </ul>
+                <div class="row no-margin-bottom">
+                    <p class="no-margin-bottom publication-title pointer
+                underline-hover">{{publication.title}}, {{publication.year}}</p>
+
+                    <p class="no-margin-bottom">{{> bookAuthorsWithLinkForFilter
+                    authorsIds=publication.authorsIds}}</p>
                 </div>
-            {{/if}}
 
-            <div class="row">
-                <div class="col s12 no-padding">
-                    <p class="center-align">{{publication.title}}</p>
+                <div class="row no-margin-bottom">
+                    <p class="no-margin-bottom">{{publication.pagesNumber}} {{_ "pages"}}</p>
+                </div>
 
-                    <p class="center-align">{{> bookAuthorsWithLinkForFilter
-                    authorsIds=publication.authorsIds
-                    }}
+                {{#if publication.description}}
+                    <div class="row no-margin-bottom">
+                        <p class="no-margin-bottom">
+                            {{publication.description}}
+                        </p>
+                    </div>
+                {{/if}}
+
+                <div class="row no-margin-bottom">
+                    <p class="no-margin-bottom">
+                        <a href="{{getPublPdfUrlFromId publication.pdfId}}" target="_blank">{{_ "bookExample"}}</a>
                     </p>
                 </div>
-            </div>
 
-            <div class="row">
-                <p>{{publication.year}} - {{publication.pagesNumber}} {{_ "pages"}}</p>
-            </div>
-
-            {{#if publication.description}}
                 <div class="row">
+                    <p>{{publication.pagesNumber}} {{_ "pages"}}</p>
+                </div>
+
+                {{#if publication.description}}
+                    <div class="row">
+                        <p>
+                            {{publication.description}}
+                        </p>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+
+                <div class="row">
+                    <h4 class="center-align">{{_ "bookContent"}}</h4>
+
                     <p>
-                        {{publication.description}}
+                        {{publication.content}}
                     </p>
                 </div>
-            {{/if}}
 
-            <div class="row">
-                <h4 class="center-align">{{_ "bookContent"}}</h4>
+                <div class="row">
+                    <div class="col s4 no-padding">
+                        <p>{{_ "isbn"}} {{publication.isbn}}</p>
+                    </div>
+                    <div class="col s4">
+                        <p>{{_ "bbk"}} {{publication.bbk}}</p>
+                    </div>
+                    <div class="col s4">
+                        <p>{{_ "udc"}} {{publication.udc}}</p>
+                    </div>
+                </div>
 
-                <p>
-                    {{publication.content}}
-                </p>
-            </div>
-
-            <div class="row">
-                <div class="col s4 no-padding">
-                    <p>{{_ "isbn"}} {{publication.isbn}}</p>
-                </div>
-                <div class="col s4">
-                    <p>{{_ "bbk"}} {{publication.bbk}}</p>
-                </div>
-                <div class="col s4">
-                    <p>{{_ "udc"}} {{publication.udc}}</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s3">
-                    <button type="button" class="btn btn-muted buy-button">{{_ "buy"}}</button>
-                </div>
-                <div class="col s5">
-                    <p>{{_ "bookPrice"}} {{publication.price}} {{_ "UAH"}}</p>
+                <div class="row">
+                    <div class="col s3">
+                        <button type="button" class="btn btn-muted buy-button">{{_ "buy"}}</button>
+                    </div>
+                    <div class="col s5">
+                        <p>{{_ "bookPrice"}} {{publication.price}} {{_ "UAH"}}</p>
+                    </div>
                 </div>
             </div>
         </div>

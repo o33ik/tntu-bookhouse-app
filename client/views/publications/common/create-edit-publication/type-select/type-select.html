@@ -1,0 +1,14 @@
+<template name="typeSelect">
+    <div class="row">
+        <div class="input-field col s12">
+            <select id="type">
+                <option disabled selected>{{_ "chooseType"}}</option>
+                {{#each types}}
+                    <option value="{{this}}" selected=
+                            "{{#if equal ../selectedType this}}selected{{/if}}">{{_ this}}</option>
+                {{/each}}
+            </select>
+            <label for="type">{{_ "bookType"}}</label>
+        </div>
+    </div>
+</template>

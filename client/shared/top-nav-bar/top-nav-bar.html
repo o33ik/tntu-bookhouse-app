@@ -27,8 +27,8 @@
         </div>
     </nav>
 
-    <ul id="slide-out" class="side-nav">
-        <li><a>{{_ "allPublications"}}</a></li>
+    <ul id="slide-out" class="side-nav side-menu">
+        <li><a id="all-publications">{{_ "allPublications"}}</a></li>
 
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
@@ -40,23 +40,23 @@
 
                     <div class="collapsible-body">
                         <ul>
-                            <li><a>{{_ "monographs"}}</a></li>
-                            <li><a>{{_ "conferenceMaterials"}}</a></li>
-                            <li><a>{{_ "other"}}</a></li>
+                            <li><a class="publications" id="monographs">{{_ "monographs"}}</a></li>
+                            <li><a class="publications" id="conferenceMaterials">{{_ "conferenceMaterials"}}</a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </li>
 
-        <li><a>{{_ "studiesPublications"}}</a></li>
-        <li><a>{{_ "socioPoliticalPublications"}}</a></li>
-        <li><a>{{_ "literaryAndArtPublication"}}</a></li>
+        <li><a class="publications" id="studiesPublications">{{_ "studiesPublications"}}</a></li>
+        <li><a class="publications" id="socioPoliticalPublications">{{_ "socioPoliticalPublications"}}</a></li>
+        <li><a class="publications" id="literaryAndArtPublication">{{_ "literaryAndArtPublication"}}</a></li>
+        <li><a class="publications" id="other">{{_ "other"}}</a></li>
 
         <li class="divider"></li>
 
-        <li><a>{{_ "about"}}</a></li>
-        <li><a>{{_ "authorsInformation"}}</a></li>
-        <li><a>{{_ "customerInformation"}}</a></li>
+        <li><a class="info" id="about">{{_ "about"}}</a></li>
+        <li><a class="info" id="authors-info">{{_ "authorsInformation"}}</a></li>
+        <li><a class="info" id="customer-info">{{_ "customerInformation"}}</a></li>
     </ul>
 </template>

@@ -5,6 +5,7 @@ Template.createEditPublication.onCreated(function () {
         var getValuesFromForm = function () {
             var title = tmpl.$('#title').val().trim();
             var description = tmpl.$('#description').val().trim();
+            var type = tmpl.$('#type').val();
             var year = tmpl.$('#year').val().trim();
             var pagesNumber = tmpl.$('#pages-number').val();
             var content = tmpl.$('#content').val().trim();
@@ -17,6 +18,7 @@ Template.createEditPublication.onCreated(function () {
             return {
                 title: title,
                 description: description,
+                type: type,
                 year: year,
                 pagesNumber: pagesNumber,
                 content: content,
@@ -40,7 +42,7 @@ Template.createEditPublication.onCreated(function () {
                     if (err) {
                         console.log(err);
                     } else {
-                        FlowRouter.go('viewPublication', {id: res});
+                        FlowRouter.go('viewPublication', {id: publicationId});
                     }
                 });
         } else {

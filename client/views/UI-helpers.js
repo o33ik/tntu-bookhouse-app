@@ -28,3 +28,14 @@ UI.registerHelper('canUser', function (action, group) {
     var userId = Meteor.userId();
     return AppTntu.canUser(action, userId, group);
 });
+
+
+UI.registerHelper('getPublPdfUrlFromId', function (pdfIf) {
+    var doc = PublicationsPdf.findOne({_id: pdfIf});
+    return doc ? doc.url() : null;
+});
+
+UI.registerHelper('getPublImageUrlFromId', function (imgId) {
+    var doc = Images.findOne({_id: imgId});
+    return doc ? doc.url() : null;
+});

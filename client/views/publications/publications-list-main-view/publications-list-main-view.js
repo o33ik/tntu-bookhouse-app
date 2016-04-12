@@ -8,6 +8,10 @@ Template.publicationsListMainView.onCreated(function () {
         if (authorId) {
             query.authorsIds = authorId;
         }
+        var type = FlowRouter.getQueryParam('type');
+        if (type) {
+            query.type = type;
+        }
 
         self.query.set(query);
         self.subscribe('publications', _.clone(query));
