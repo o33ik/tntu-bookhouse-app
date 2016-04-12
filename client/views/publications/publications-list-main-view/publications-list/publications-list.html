@@ -16,6 +16,12 @@
                 {{> publicationListItem publication=this}}
                 <div class="divider"></div>
             {{/each}}
+
+            {{#if showLoadMoreButton}}
+                <div class="center-align">
+                    <button class="btn load-more-button">{{_ "loadMore"}}</button>
+                </div>
+            {{/if}}
         </div>
     </div>
 </template>

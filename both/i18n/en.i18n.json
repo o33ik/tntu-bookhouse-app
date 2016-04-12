@@ -10,8 +10,7 @@
   "udc": "UDC",
   "bbk": "BBK",
   "bookImage": "Image",
-  "bookPdf": "PDF document",
-  "bookExample": "Example",
+  "bookPdf": "PDF example",
 
   "chooseAuthor": "Choose the author",
   "createNewAuthor": "Create new author",
