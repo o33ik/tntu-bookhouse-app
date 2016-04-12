@@ -6,10 +6,11 @@
   "bookContent": "Content",
   "bookPrice": "Price",
   "bookAuthors": "Authors",
+  "bookType": "Type",
   "isbn": "ISBN",
   "udc": "UDC",
   "bbk": "BBK",
-  "bookImage": "Image",
+  "bookImage": "Cover photo",
   "bookPdf": "PDF example",
 
   "chooseAuthor": "Choose the author",

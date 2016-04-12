@@ -19,6 +19,13 @@ Template.viewPublication.onRendered(function () {
     });
 });
 
+Template.viewPublication.helpers({
+    contentLines: function () {
+        var content = this.publication ? this.publication.content : '';
+        return content.split('\n');
+    }
+});
+
 Template.viewPublication.events({
     'click .edit-publication-button': function (event, tmpl) {
         FlowRouter.go('editPublication', {id: tmpl.data.publication._id});

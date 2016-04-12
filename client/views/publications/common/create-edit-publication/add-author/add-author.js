@@ -14,7 +14,6 @@ Template.addAuthor.onRendered(function () {
         Template.currentData();
         Authors.find().fetch();
 
-        self.$('.select-dropdown').val('Choose the author');
         setTimeout(function () {
             self.$('#author').material_select('update');
         }, 50);
@@ -33,6 +32,7 @@ Template.addAuthor.helpers({
 Template.addAuthor.events({
     'change #author': function (event, tmpl) {
         tmpl.data.addAuthor(event.target.value);
+        tmpl.$('#author').val('def');
     },
 
     'click .chip i': function (event, tmpl) {

@@ -64,9 +64,11 @@
                 <div class="row">
                     <h4 class="center-align">{{_ "bookContent"}}</h4>
 
-                    <p>
-                        {{publication.content}}
-                    </p>
+                    {{#each contentLines}}
+                        <p>
+                            {{this}}
+                        </p>
+                    {{/each}}
                 </div>
 
                 <div class="row">
