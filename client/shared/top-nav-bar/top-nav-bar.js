@@ -36,5 +36,11 @@ Template.topNavBar.events({
         var selectedMenuItem = event.target.id;
         console.log(selectedMenuItem);
         tmpl.closeSideNav();
+    },
+
+    'submit .search-form': function (event, tmpl) {
+        event.preventDefault();
+        var searchString = $(event.target).find('input').val();
+        console.log(searchString);
     }
 });

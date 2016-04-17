@@ -1,0 +1,1 @@
+Buckets = new Mongo.Collection('buckets');

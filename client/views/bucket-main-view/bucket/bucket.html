@@ -1,0 +1,38 @@
+<template name="bucket">
+    <div class="bucket-wrapper">
+        <div class="row">
+            <div class="row">
+                <div class="center-align">
+                    <h4>{{_ "bucket"}}</h4>
+                </div>
+            </div>
+            {{#if arrayHasDocuments bucketItems}}
+                <div class="col s8">
+                    <div class="row bucket-items-list">
+                        {{#each bucketItems}}
+                            {{> bucketListItem bucketItem=this}}
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="row">
+                        <div class="row">
+                            <p>{{_ "totalBucket"}}: {{totalBucketPrice}}</p>
+                        </div>
+
+                        <div class="row">
+                            <a class="waves-effect waves-light clear-bucket-button
+                btn"><i class="material-icons left">delete</i>{{_ "clearBucket"}}</a>
+                        </div>
+
+                        <div class="row">
+                            <a class="btn place-order-button">{{_ "placeOrder"}}</a>
+                        </div>
+                    </div>
+                </div>
+            {{else}}
+                <p>{{_ "bucketIsEmpty"}}</p>
+            {{/if}}
+        </div>
+    </div>
+</template>

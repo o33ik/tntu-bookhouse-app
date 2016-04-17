@@ -52,5 +52,9 @@ Template.viewPublication.events({
             confirmButtonText: "Yes, delete it!",
             closeOnConfirm: false
         }, deletePublication);
+    },
+
+    'click .buy-button': function (event, tmpl) {
+        AppTntu.bucket.addItemToBucket(tmpl.data.publication._id);
     }
 });

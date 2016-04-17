@@ -1,0 +1,21 @@
+<template name="bucketListItem">
+    <div class="row bucket-item">
+        <div class="col s3">
+            <img class="publication-image pointer" src="{{getPublImageUrlFromId publicationItem.imageId}}">
+        </div>
+
+        <div class="col s9">
+            <a class="title pointer">{{publicationItem.title}}</a>
+
+            <p class="amount-label">{{_ "amount"}}: <input type="number" class="amount" value="{{bucketItem.amount}}" min="1"></p>
+
+            <p class="price">{{_ "bookPrice"}}: {{publicationItem.price}}</p>
+
+            <p class="total-price">{{_ "total"}}: {{totalBucketPositionPrice}}</p>
+
+            <i class="delete-icon material-icons pointer">delete</i>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+</template>
