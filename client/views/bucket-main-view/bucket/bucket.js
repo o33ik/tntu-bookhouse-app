@@ -20,6 +20,7 @@ Template.bucket.events({
         AppTntu.bucket.clearBucket();
     },
 
-    'click .place-order-button': function (event, tmpl) {
+    'click .place-order-button': function () {
+        AppTntu.bucket.placeOrder();
     }
 });
