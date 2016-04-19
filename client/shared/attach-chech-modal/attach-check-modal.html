@@ -1,0 +1,24 @@
+<template name="attachCheckModal">
+    <div id="attach-check-modal" class="modal">
+        <div class="modal-content">
+            <h4>{{_ "attachCheckToOrder"}} №{{order.orderNumber}}</h4>
+
+            <form action="#">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input id="check-input" type="file" accept="image/*"
+                               required>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <a class="confirm modal-action modal-close waves-effect waves-green btn-flat">{{_ "attach"}}</a>
+        </div>
+    </div>
+</template>

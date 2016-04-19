@@ -1,0 +1,32 @@
+<template name="orderView">
+    <h4>{{_ "order"}} №{{order.orderNumber}}, {{formatDate order.placedAt "DD.MM.YYYY HH:mm"}}</h4>
+
+    <p>{{_ "totalPrice"}}: {{roundPrice order.totalPrice}}</p>
+
+    <p>{{_ "orderStatus"}}: {{_ order.status}}</p>
+
+    {{#if order.checkImageId}}
+        <a id="check-image" class="pointer underline-hover" target="_blank"
+           href="{{getPhotoUrlById order.checkImageId}}">{{_ "checkPhoto"}}</a>
+        {{#if equal order.status "placed"}}
+            <i class="delete-image pointer material-icons">delete</i>
+        {{/if}}
+    {{/if}}
+
+    <p>{{_ "orderContent"}}:</p>
+    <ol>
+        {{#each order.items}}
+            {{#with orderItem id}}
+                <li><a id="{{_id}}"
+                       class="pointer underline-hover">{{title}} x {{../amount}}</a></li>
+            {{/with}}
+        {{/each}}
+    </ol>
+
+    {{#if equal order.status "placed"}}
+        <a class="attach-check-button btn">{{_ "attachCheck"}}</a>
+    {{/if}}
+    {{#if isAdmin}}
+        <a class="confirm-paid-button btn">{{_ "confirmPaid"}}</a>
+    {{/if}}
+</template>

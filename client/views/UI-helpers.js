@@ -1,3 +1,7 @@
+UI.registerHelper('isAdmin', function () {
+    return Roles.userIsInRole(Meteor.userId(), 'admin')
+});
+
 UI.registerHelper('equal', function (param1, param2) {
     return param1 == param2;
 });
@@ -14,6 +18,12 @@ UI.registerHelper('arrayContainsElement', function (arrayOrCursor, element) {
         return _.isEqual(itemInArray, element);
     });
 });
+
+UI.registerHelper('formatDate', function (date, format) {
+    format = format || 'DD.MM.YYYY HH:mm';
+    return moment(date).format(format);
+});
+
 
 UI.registerHelper('bookAuthorsNames', function (addedAuthorsIds) {
     addedAuthorsIds = addedAuthorsIds || [];
@@ -35,7 +45,11 @@ UI.registerHelper('getPublPdfUrlFromId', function (pdfIf) {
     return doc ? doc.url() : null;
 });
 
-UI.registerHelper('getPublImageUrlFromId', function (imgId) {
+UI.registerHelper('getPhotoUrlById', function (imgId) {
     var doc = Images.findOne({_id: imgId});
     return doc ? doc.url() : null;
+});
+
+UI.registerHelper('roundPrice', function (price) {
+    return Math.round(price * 100) / 100;
 });

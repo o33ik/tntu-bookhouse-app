@@ -14,7 +14,7 @@ Template.bucketListItem.helpers({
     totalBucketPositionPrice: function () {
         var total = this.bucketItem.amount *
             Template.instance().publicationItem.get().price;
-        return Math.round(total * 100) / 100;
+        return total;
     }
 });
 

@@ -1,11 +1,11 @@
 <template name="bucketListItem">
     <li class="bucket-item collection-item avatar">
-        <img src="{{getPublImageUrlFromId publicationItem.imageId}}" class="circle">
+        <img src="{{getPhotoUrlById publicationItem.imageId}}" class="circle">
         <span class="title pointer">Title</span>
         <p>{{publicationItem.title}}</p>
         <p>{{_ "bookPrice"}}: {{publicationItem.price}}</p>
         <p class="amount-label">{{_ "amount"}}: <input type="number" class="amount" value="{{bucketItem.amount}}" min="1"></p>
-        <p class="total-price">{{_ "total"}}: {{totalBucketPositionPrice}}</p>
+        <p class="total-price">{{_ "total"}}: {{roundPrice totalBucketPositionPrice}}</p>
         <a class="delete-icon secondary-content"><i class="material-icons">delete</i></a>
     </li>
 </template>

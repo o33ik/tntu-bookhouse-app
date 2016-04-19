@@ -7,6 +7,7 @@ AppTntu.bucket.addItemToBucket = function (bookId) {
                 console.log(err);
             } else {
                 console.log(res);
+                Materialize.toast('Item was added to the bucket', 3000);
             }
         });
     } else {
@@ -44,11 +45,12 @@ AppTntu.bucket.removeItemFromBucket = function (bookId) {
 
 AppTntu.bucket.clearBucket = function () {
     if (Meteor.user()) {
-        Meteor.call('clearBucket', function (err, res) {
+        Meteor.call('placeOrderLoggedIn', function (err, res) {
             if (err) {
                 console.log(err);
             } else {
                 console.log(res);
+                Materialize.toast('Your order was placed', 3000);
             }
         });
     } else {
@@ -58,11 +60,12 @@ AppTntu.bucket.clearBucket = function () {
 
 AppTntu.bucket.placeOrder = function () {
     if (Meteor.user()) {
-        Meteor.call('clearBucket', function (err, res) {
+        Meteor.call('placeOrderLoggedIn', function (err, res) {
             if (err) {
                 console.log(err);
             } else {
                 console.log(res);
+                FlowRouter.go('userOrdersList', {id: res});
             }
         });
     } else {

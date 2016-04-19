@@ -1,5 +1,9 @@
 <template name="ordersList">
-    {{#each orders}}
-        {{placedAt}}
-    {{/each}}
+    <div class="">
+        {{#each orders}}
+            {{>orderListItem
+            order=this
+            }}
+        {{/each}}
+    </div>
 </template>

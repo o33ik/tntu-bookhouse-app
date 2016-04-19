@@ -11,7 +11,7 @@ Template.bucket.helpers({
             var publication = Publications.findOne(bucketItem.id);
             totalPrice += (publication ? publication.price : 0) * bucketItem.amount;
         });
-        return Math.round(totalPrice * 100) / 100;
+        return totalPrice;
     }
 });
 
