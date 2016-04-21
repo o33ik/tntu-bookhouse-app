@@ -95,6 +95,13 @@ Template.createEditPublication.onRendered(function () {
 
         self.allFieldsIsValid.set(allInputsIsValid && hasAtLeastOneAuthor);
     });
+
+    this.autorun(function () {
+        self.imageBase64.get();
+        Tracker.afterFlush(function () {
+            self.$('.image-preview').materialbox();
+        });
+    });
 });
 
 Template.createEditPublication.helpers({
@@ -155,12 +162,6 @@ Template.createEditPublication.events({
         } else {
             tmpl.imageBase64.set(null);
         }
-    },
-
-    'click .image-preview': function (event, tmpl) {
-        var parentNode = $('body')[0];
-        Blaze.renderWithData(Template.previewImageModal,
-            {imageURL: tmpl.imageBase64.get()}, parentNode);
     },
 
     'change #pdf': function (event, tmpl) {

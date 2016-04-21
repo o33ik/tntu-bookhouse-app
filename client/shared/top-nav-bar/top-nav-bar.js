@@ -34,7 +34,7 @@ Template.topNavBar.events({
 
     'click .side-menu .info': function (event, tmpl) {
         var selectedMenuItem = event.target.id;
-        console.log(selectedMenuItem);
+        FlowRouter.go(selectedMenuItem);
         tmpl.closeSideNav();
     },
 

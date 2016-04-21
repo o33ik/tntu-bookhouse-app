@@ -17,6 +17,8 @@ Template.viewPublication.onRendered(function () {
             });
         }
     });
+
+    this.$('.publication-image').materialbox();
 });
 
 Template.viewPublication.helpers({
@@ -56,11 +58,5 @@ Template.viewPublication.events({
 
     'click .buy-button': function (event, tmpl) {
         AppTntu.bucket.addItemToBucket(tmpl.data.publication._id);
-    },
-
-    'click .publication-image': function (event, tmpl) {
-        var parentNode = $('body')[0];
-        Blaze.renderWithData(Template.previewImageModal,
-            {imageURL: event.target.src}, parentNode);
     }
 });

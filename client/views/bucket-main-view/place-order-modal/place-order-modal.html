@@ -1,0 +1,40 @@
+<template name="placeOrderModal">
+    <div id="place-order-modal" class="modal">
+        <div class="modal-content">
+            <form>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="name" type="text" class="validate" required>
+                        <label for="name">{{_ "name"}}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="mobile-number" type="text" class="validate"
+                               pattern="{{mobileNumberPattern}}" required>
+                        <label for="mobile-number">{{_ "mobileNumber"}}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="address" class="materialize-textarea" required></textarea>
+                        <label for="address">{{_ "address"}}</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a class="confirm modal-action modal-close
+            waves-effect waves-green btn-flat">{{_ "confirm"}}</a>
+        </div>
+    </div>
+</template>

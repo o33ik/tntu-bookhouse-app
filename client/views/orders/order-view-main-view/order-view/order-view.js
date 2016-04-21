@@ -26,11 +26,17 @@ Template.orderView.events({
         });
     },
 
-    'click li a': function (event) {
+    'click .title': function (event) {
         FlowRouter.go('viewPublication', {id: event.currentTarget.id});
     },
 
     'click .delete-image': function (event, tmpl) {
         Meteor.call('deleteCheckFromOrder', tmpl.data.order._id);
+    },
+
+    'click .payment-info': function (event, tmpl) {
+        var paymentInfo = tmpl.data.order.paymentInfo;
+        var newWindow = window.open();
+        newWindow.document.write(paymentInfo);
     }
 });

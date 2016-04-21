@@ -1,8 +1,9 @@
 Template.bucketListItem.onCreated(function () {
     var self = this;
-    this.autorun(function(){
-        self.publicationItem =
-            new ReactiveVar(Publications.findOne(Template.currentData().bucketItem.id));
+    self.publicationItem = new ReactiveVar({});
+    this.autorun(function () {
+        self.publicationItem
+            .set(Publications.findOne(Template.currentData().bucketItem.id));
     });
 });
 
@@ -12,9 +13,9 @@ Template.bucketListItem.helpers({
     },
 
     totalBucketPositionPrice: function () {
-        var total = this.bucketItem.amount *
-            Template.instance().publicationItem.get().price;
-        return total;
+        var publication = Template.instance().publicationItem.get();
+        var price = !_.isEmpty(publication) ? publication.price : 0;
+        return this.bucketItem.amount * price;
     }
 });
 

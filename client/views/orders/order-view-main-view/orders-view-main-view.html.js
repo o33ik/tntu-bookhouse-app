@@ -7,6 +7,9 @@ Template.orderViewMainView.onCreated(function () {
 
 Template.orderViewMainView.helpers({
     order: function () {
-        return Orders.findOne(FlowRouter.getParam('id'));
+        var query = {
+            _id: FlowRouter.getParam('id')
+        };
+        return Orders.findOne(query);
     }
 });
