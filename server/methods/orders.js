@@ -4,7 +4,7 @@ Meteor.methods({
 
         if (!userId) {
             throw new Meteor.Error('Permission Error!',
-                'You should be logged in to perfom this action');
+                'You should be logged in to perform this action');
         }
 
         var bucket = Buckets.findOne({userId: userId});
@@ -44,8 +44,17 @@ Meteor.methods({
 
 
 var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
-    var generatePaymentInfo = function (items, totalPrice) {
-        var templateData = '';
+    var computeTotalPrice = function (orderItems) {
+        var totalPrice = 0;
+        _.each(orderItems, function (bucketItem) {
+            var publication = Publications.findOne(bucketItem.id);
+            totalPrice += (publication ? publication.price : 0) * bucketItem.amount;
+        });
+        return totalPrice;
+    };
+
+    var generatePaymentInfoHtml = function (items, totalPrice) {
+        var templateData = {};
         if (items.length <= 3) {
             var orderItemsAmountAndTitle = _.map(orderItems, function (item) {
                 var publication = Publications.findOne(item.id);
@@ -61,6 +70,7 @@ var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
             templateData = {itemsAmount: orderItems.length};
         }
 
+        totalPrice = Math.round(totalPrice * 100) / 100;
         templateData.totalPrice = {};
         var parsedPrice = /(\d+)((\.)(\d+))?/.exec(totalPrice);
         templateData.totalPrice.grn = parsedPrice[1];
@@ -72,18 +82,38 @@ var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
         return paymentTemplate(templateData);
     };
 
-    var totalPrice = 0;
-    _.each(orderItems, function (bucketItem) {
-        var publication = Publications.findOne(bucketItem.id);
-        totalPrice += (publication ? publication.price : 0) * bucketItem.amount;
-    });
+    var sendEmail = function (orderId) {
+        var generateEmailHtml = function (order) {
+            var rootUrl = process.env.ROOT_URL;
+            var orderUrl = rootUrl + 'orders/' + orderId;
 
-    var lastOrder = Orders.findOne({}, {sort: {placedAt: -1}});
-    var orderNumber = lastOrder ? lastOrder.orderNumber + 1 : 1;
-    var paymentInfo = generatePaymentInfo(orderItems, totalPrice);
+            var paymentInfoHtml = order.paymentInfo;
+
+            var templateData = {
+                orderURL: orderUrl,
+                paymentInfo: paymentInfoHtml
+            };
+
+            var mailTemplate = Handlebars.templates['email-template'];
+            return mailTemplate(templateData);
+        };
+
+        var order = Orders.findOne(orderId);
+
+        AppTntu.mailGun.send({
+                'to': order.deliveryInfo.email,
+                'from': 'no-reply@test.com',
+                text: "Some text bluat",
+                html: generateEmailHtml(order),
+                'subject': 'Замовлення'
+            }
+        );
+    };
+
+    var totalPrice = computeTotalPrice(orderItems);
+    var paymentInfo = generatePaymentInfoHtml(orderItems, totalPrice);
 
     var order = {
-        orderNumber: orderNumber,
         placedAt: new Date(),
         items: orderItems,
         totalPrice: totalPrice,
@@ -97,6 +127,9 @@ var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
     }
 
     var orderId = Orders.insert(order);
+
+    sendEmail(orderId);
+
     Meteor.call('clearBucket');
     return orderId;
 };

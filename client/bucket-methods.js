@@ -99,19 +99,21 @@ var changeBucketInCookie = function (bookId, amount, remove) {
     var existedItem = _.find(itemsInBucket, function (itemItem) {
         return itemItem.id == bookId;
     });
+    var alreadyAdded = !!existedItem;
 
-    if (existedItem) {
+
+    if (alreadyAdded) {
         itemsInBucket = _.reject(itemsInBucket, function (it) {
             return it.id == existedItem.id;
         });
     } else {
-        existedItem = {id: bookId, amount: 1, addedAt: new Date()}
+        existedItem = {id: bookId, amount: 1, addedAt: new Date()};
     }
 
     if (!remove) {
         if (amount) {
             existedItem.amount = amount;
-        } else {
+        } else if (alreadyAdded) {
             existedItem.amount++;
         }
         itemsInBucket.push(existedItem);

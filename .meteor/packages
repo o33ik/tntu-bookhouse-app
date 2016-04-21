@@ -23,8 +23,13 @@ momentjs:moment
 reactive-var
 manuel:reactivearray
 reywood:publish-composite
+
 accounts-base
+service-configuration
+accounts-ui
 accounts-password
+accounts-google
+
 check
 tap:i18n-db
 materialize:materialize
@@ -39,3 +44,5 @@ standard-minifier-css
 standard-minifier-js
 fastclick
 cmather:handlebars-server
+email
+gfk:mailgun-api
