@@ -3,6 +3,16 @@ Template.publicationsListMainView.onCreated(function () {
     var self = this;
 
     this.autorun(function () {
+        var changeQuery = function (query) {
+            self.query.set(query);
+
+            var limit = parseInt(FlowRouter.getQueryParam('limit')) || 10;
+            var options = {sort: {createdAt: 1}, limit: limit};
+
+            self.subscribe('publications', _.clone(query), options);
+        };
+
+
         var query = {};
         var authorId = FlowRouter.getQueryParam('authorId');
         if (authorId) {
@@ -12,12 +22,33 @@ Template.publicationsListMainView.onCreated(function () {
         if (type) {
             query.type = type;
         }
-        self.query.set(query);
 
-        var limit = parseInt(FlowRouter.getQueryParam('limit')) || 10;
-        var options = {sort: {createdAt: 1}, limit: limit};
+        var searchString = FlowRouter.getQueryParam('search');
+        if (searchString) {
+            Meteor.call('getAuthorsIdsBySearchString', searchString, function (err, res) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    var regex = {$regex: searchString, $options: 'gim'};
+                    query.$or = [
+                        {title: regex},
+                        {description: regex},
+                        {content: regex},
+                        {year: regex},
+                        {pagesNumber: regex},
+                        {price: regex},
+                        {isbn: regex},
+                        {bbk: regex},
+                        {udc: regex},
+                        {authorsIds: {$in: res}}
+                    ];
+                    changeQuery(query);
+                }
+            });
+        } else {
+            changeQuery(query);
+        }
 
-        self.subscribe('publications', _.clone(query), options);
     });
 });
 

@@ -42,5 +42,6 @@ Template.topNavBar.events({
         event.preventDefault();
         var searchString = $(event.target).find('input').val();
         console.log(searchString);
+        FlowRouter.go('publicationsList', {}, {search: searchString});
     }
 });
