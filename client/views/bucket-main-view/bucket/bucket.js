@@ -12,12 +12,16 @@ Template.bucket.helpers({
             totalPrice += (publication ? publication.price : 0) * bucketItem.amount;
         });
         return totalPrice;
+    },
+    reloadItemsFromTheBucket: function () {
+        return Template.instance().data.reloadItemsFromTheBucket;
     }
 });
 
 Template.bucket.events({
-    'click .clear-bucket-button': function () {
+    'click .clear-bucket-button': function (event, tmpl) {
         AppTntu.bucket.clearBucket();
+        tmpl.data.reloadItemsFromTheBucket();
     },
 
     'click .place-order-button': function () {

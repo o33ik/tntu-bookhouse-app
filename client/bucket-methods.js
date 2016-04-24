@@ -31,6 +31,8 @@ AppTntu.bucket.removeItemFromBucket = function (bookId) {
         Meteor.call('removeItemFromBucket', bookId, function (err, res) {
             if (err) {
                 console.log(err);
+            } else {
+                Materialize.toast('Item was removed from the bucket', 3000);
             }
         });
     } else {
@@ -40,11 +42,11 @@ AppTntu.bucket.removeItemFromBucket = function (bookId) {
 
 AppTntu.bucket.clearBucket = function () {
     if (Meteor.user()) {
-        Meteor.call('placeOrderLoggedIn', function (err, res) {
+        Meteor.call('clearBucket', function (err, res) {
             if (err) {
                 console.log(err);
             } else {
-                Materialize.toast('Your order was placed', 3000);
+                Materialize.toast('Bucket was cleared', 3000);
             }
         });
     } else {
@@ -117,6 +119,9 @@ var changeBucketInCookie = function (bookId, amount, remove) {
             existedItem.amount++;
         }
         itemsInBucket.push(existedItem);
+        Materialize.toast('Item was added to the bucket', 3000);
+    } else {
+        Materialize.toast('Item was removed from the bucket', 3000);
     }
     Cookie.set('bucket', JSON.stringify(itemsInBucket));
 };

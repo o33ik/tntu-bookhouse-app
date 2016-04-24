@@ -12,15 +12,18 @@ Template.bucketMainView.onCreated(function () {
     }
 
     this.bucketItems = new ReactiveVar();
+    this.itemsWasChanged = new ReactiveVar(true);
     this.autorun(function () {
+        var bucketItems;
         if (Meteor.userId()) {
             var bucket = Buckets.findOne();
-            var bucketItems = bucket ? bucket.addedBooks : [];
-            self.bucketItems.set(bucketItems);
+            bucketItems = bucket ? bucket.addedBooks : [];
         } else {
-            var bucketItems = AppTntu.bucket.getBucketItemsFromCookie();
-            self.bucketItems.set(bucketItems);
+            self.itemsWasChanged.get();
+            bucketItems = AppTntu.bucket.getBucketItemsFromCookie();
         }
+        var sortedItems = _.sortBy(bucketItems, 'addedAt');
+        self.bucketItems.set(sortedItems);
     });
 });
 
@@ -30,6 +33,15 @@ Template.bucketMainView.onRendered(function () {
 Template.bucketMainView.helpers({
     bucketItems: function () {
         return Template.instance().bucketItems.get();
+    },
+
+    reloadItemsFromTheBucketCb: function () {
+        var tmpl = Template.instance();
+
+        return function () {
+            var currVal = tmpl.itemsWasChanged.get();
+            tmpl.itemsWasChanged.set(!currVal);
+        }
     }
 });
 

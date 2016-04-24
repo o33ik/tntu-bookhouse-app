@@ -27,9 +27,11 @@ Template.bucketListItem.events({
     'change .amount': function (event, tmpl) {
         var newValue = parseInt(event.target.value);
         AppTntu.bucket.changeAmountOfItem(tmpl.data.bucketItem.id, newValue);
+        tmpl.data.reloadItemsFromTheBucket();
     },
 
     'click .delete-icon': function (event, tmpl) {
         AppTntu.bucket.removeItemFromBucket(tmpl.data.bucketItem.id);
+        tmpl.data.reloadItemsFromTheBucket();
     }
 });

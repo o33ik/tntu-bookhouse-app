@@ -1,3 +1,6 @@
 <template name="bucketMainView">
-        {{> bucket bucketItems=bucketItems}}
+    {{> bucket
+    bucketItems=bucketItems
+    reloadItemsFromTheBucket=reloadItemsFromTheBucketCb
+    }}
 </template>

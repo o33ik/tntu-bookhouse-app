@@ -11,7 +11,10 @@
                     <div class="row bucket-items-list">
                         <ul class="collection">
                             {{#each bucketItems}}
-                                {{> bucketListItem bucketItem=this}}
+                                {{> bucketListItem
+                                bucketItem=this
+                                reloadItemsFromTheBucket=reloadItemsFromTheBucket
+                                }}
                             {{/each}}
                         </ul>
                     </div>

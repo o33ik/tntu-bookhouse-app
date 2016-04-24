@@ -7,7 +7,7 @@
                 <a href="#" class="brand-logo hide-on-med-and-down">Logo</a>
             </div>
 
-            <div class="col s10 m6 no-padding">
+            <div class="col s8 m5 l6 no-padding">
                 <form class="search-form">
                     <div class="input-field">
                         <input id="search" type="search" required>
@@ -17,57 +17,21 @@
                 </form>
             </div>
 
-            <div class="col m3 hide-on-small-only">
-                <div class="right">
+            <div class="col m2 hide-on-small-only">
+                <div class="center-align">
                     <span id="en" class="pointer flag-icon flag-icon-us"></span>
                     <span id="ua" class="pointer flag-icon flag-icon-ua"></span>
                     <span id="ru" class="pointer flag-icon flag-icon-ru"></span>
                 </div>
             </div>
+
+            <div class="col s2 l1">
+                <div class="right">
+                    {{> loginButtons align="right"}}
+                </div>
+            </div>
         </div>
     </nav>
 
-    <ul id="slide-out" class="side-nav side-menu">
-        <li><a id="all-publications">{{_ "allPublications"}}</a></li>
-
-        <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
-                <li>
-                    <a class="collapsible-header">
-                        {{_ "sciencePublications"}}
-                        <i class="mdi-navigation-arrow-drop-down"></i>
-                    </a>
-
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a class="publications" id="monographs">{{_ "monographs"}}</a></li>
-                            <li><a class="publications" id="conferenceMaterials">{{_ "conferenceMaterials"}}</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-
-        <li><a class="publications" id="studiesPublications">{{_ "studiesPublications"}}</a></li>
-        <li><a class="publications" id="socioPoliticalPublications">{{_ "socioPoliticalPublications"}}</a></li>
-        <li><a class="publications" id="literaryAndArtPublication">{{_ "literaryAndArtPublication"}}</a></li>
-        <li><a class="publications" id="other">{{_ "other"}}</a></li>
-
-        <li class="divider"></li>
-
-        <li><a class="info" id="about">{{_ "about"}}</a></li>
-        <li><a class="info" id="authors-info">{{_ "authorsInformation"}}</a></li>
-        <li><a class="info" id="customer-info">{{_ "customerInformation"}}</a></li>
-
-        <div class="hide-on-large-only">
-            <li class="divider"></li>
-            <li>
-                <a class="info" id="bucket">{{_ "bucket"}}</a>
-            </li>
-
-            <li>
-                <a class="info" id="userOrdersList">{{_ "orders"}}</a>
-            </li>
-        </div>
-    </ul>
+    {{> sideMenu}}
 </template>
