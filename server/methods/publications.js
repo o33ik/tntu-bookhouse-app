@@ -7,13 +7,11 @@ Meteor.methods({
         check(publicationObject, AppTntu.documentsCheckers.publication);
 
         if (imageBase64) {
-            var imageId = Images.insert(imageBase64)._id;
-            publicationObject.imageId = imageId;
+            publicationObject.imageId = uploadImage(imageBase64);
         }
 
         if (pdfBase64) {
-            var pdfId = PublicationsPdf.insert(pdfBase64)._id;
-            publicationObject.pdfId = pdfId;
+            publicationObject.pdfId = uploadPdf(pdfBase64);
         }
 
         publicationObject.createdAt = new Date();
@@ -29,14 +27,16 @@ Meteor.methods({
 
         check(publicationObject, AppTntu.documentsCheckers.publication);
 
+        var targetPublication = Publications.findOne(publicationObject._id);
+
         if (imageBase64) {
-            var imageId = Images.insert(imageBase64)._id;
-            publicationObject.imageId = imageId;
+            publicationObject.imageId = Images.insert(imageBase64)._id;
+            Images.remove(targetPublication.imageId);
         }
 
         if (pdfBase64) {
-            var pdfId = PublicationsPdf.insert(pdfBase64)._id;
-            publicationObject.pdfId = pdfId;
+            publicationObject.pdfId = PublicationsPdf.insert(pdfBase64)._id;
+            PublicationsPdf.remove(targetPublication.pdfId);
         }
 
         publicationObject.lastUpdatedAt = new Date();

@@ -11,7 +11,8 @@
   "udc": "UDC",
   "bbk": "BBK",
   "bookImage": "Cover photo",
-  "bookPdf": "PDF example",
+  "bookPdfView": "PDF example",
+  "bookPdfDownload": "direct download",
 
   "chooseAuthor": "Choose the author",
   "createNewAuthor": "Create new author",
