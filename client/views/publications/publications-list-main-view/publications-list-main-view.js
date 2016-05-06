@@ -23,6 +23,7 @@ Template.publicationsListMainView.onCreated(function () {
             query.type = type;
         }
 
+        // if search string exist, need to get authors ids by name(search string) via server method
         var searchString = FlowRouter.getQueryParam('search');
         if (searchString) {
             Meteor.call('getAuthorsIdsBySearchString', searchString, function (err, res) {

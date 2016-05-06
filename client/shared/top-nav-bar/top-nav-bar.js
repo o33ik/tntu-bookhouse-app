@@ -41,7 +41,6 @@ Template.topNavBar.events({
     'submit .search-form': function (event, tmpl) {
         event.preventDefault();
         var searchString = $(event.target).find('input').val();
-        console.log(searchString);
         FlowRouter.go('publicationsList', {}, {search: searchString});
     }
 });
