@@ -85,6 +85,9 @@ var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
     var sendEmail = function (orderId) {
         var generateEmailHtml = function (order) {
             var rootUrl = process.env.ROOT_URL;
+            if (!/\/$/.test(rootUrl)) {
+                rootUrl = rootUrl + '/';
+            }
             var orderUrl = rootUrl + 'orders/' + orderId;
 
             var paymentInfoHtml = order.paymentInfo;
