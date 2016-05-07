@@ -103,14 +103,12 @@ var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
 
         var order = Orders.findOne(orderId);
 
-        AppTntu.mailGun.send({
-                'to': order.deliveryInfo.email,
-                'from': 'no-reply@test.com',
-                text: "Some text bluat",
-                html: generateEmailHtml(order),
-                'subject': 'Замовлення'
-            }
-        );
+        Email.send({
+            to: order.deliveryInfo.email,
+            from: 'tntu@bookhouse.com',
+            subject: 'Замовлення',
+            html: generateEmailHtml(order)
+        });
     };
 
     var totalPrice = computeTotalPrice(orderItems);
