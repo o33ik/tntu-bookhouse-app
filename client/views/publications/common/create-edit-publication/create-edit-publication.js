@@ -158,8 +158,14 @@ Template.createEditPublication.events({
             tmpl.isImageWasChanged = true;
         };
 
-        if (event.target.files[0]) {
-            reader.readAsDataURL(event.target.files[0]);
+        var file = event.target.files[0];
+        if (file) {
+            if (file.size > 2 * 1000 * 1000) {
+                console.log('file should be less that 2Mb');
+            } else {
+                reader.readAsDataURL(file);
+            }
+
         } else {
             tmpl.imageBase64.set(null);
         }
@@ -172,8 +178,14 @@ Template.createEditPublication.events({
             tmpl.isPdfWasChanged = true;
         };
 
-        if (event.target.files[0]) {
-            reader.readAsDataURL(event.target.files[0]);
+        var file = event.target.files[0];
+        if (file) {
+            if (file.size > 3 * 1000 * 1000) {
+                console.log('file should be less that 2Mb');
+            } else {
+                reader.readAsDataURL(file);
+            }
+
         } else {
             tmpl.pdfBase64.set(null);
         }
