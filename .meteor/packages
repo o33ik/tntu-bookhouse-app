@@ -37,6 +37,7 @@ planettraining:material-design-icons-font
 less
 cfs:standard-packages
 cfs:gridfs
+cfs:dropbox
 kevohagan:sweetalert
 jss:flag-icon
 chuangbo:cookie
@@ -46,4 +47,3 @@ fastclick
 cmather:handlebars-server
 email
 gfk:mailgun-api
-cfs:dropbox

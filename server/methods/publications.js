@@ -7,11 +7,11 @@ Meteor.methods({
         check(publicationObject, AppTntu.documentsCheckers.publication);
 
         if (imageBase64) {
-            publicationObject.imageId = uploadImage(imageBase64);
+            publicationObject.imageId = Images.insert(imageBase64)._id;
         }
 
         if (pdfBase64) {
-            publicationObject.pdfId = uploadPdf(pdfBase64);
+            publicationObject.pdfId = PublicationsPdf.insert(pdfBase64)._id;
         }
 
         publicationObject.createdAt = new Date();
@@ -50,6 +50,13 @@ Meteor.methods({
             throw new Meteor.Error('You don\'t have permissions to do this!');
         }
 
-        return Publications.remove(publicationId);
+        var targetPublication = Publications.findOne(publicationId);
+
+        if (targetPublication) {
+            Images.remove(targetPublication.imageId);
+            PublicationsPdf.remove(targetPublication.pdfId);
+
+            return Publications.remove(publicationId);
+        }
     }
 });

@@ -1,6 +1,7 @@
 Template.createEditPublication.onCreated(function () {
     var self = this;
 
+
     this.onSubmit = _.debounce(function (event, tmpl) {
         var getValuesFromForm = function () {
             var title = tmpl.$('#title').val().trim();
