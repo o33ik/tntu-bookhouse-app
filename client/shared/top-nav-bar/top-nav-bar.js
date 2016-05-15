@@ -38,6 +38,10 @@ Template.topNavBar.events({
         tmpl.closeSideNav();
     },
 
+    'click #checkoutCredentials': function () {
+        FlowRouter.go('checkoutCredentialsList');
+    },
+
     'submit .search-form': function (event, tmpl) {
         event.preventDefault();
         var searchString = $(event.target).find('input').val();

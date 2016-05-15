@@ -43,5 +43,10 @@
                 </li>
             {{/if}}
         </div>
+
+        {{#if isAdmin}}
+            <li class="divider"></li>
+            <li><a class="other" id="checkoutCredentials">{{_ "checkoutCredentials"}}</a></li>
+        {{/if}}
     </ul>
 </template>
