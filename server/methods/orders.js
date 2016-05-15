@@ -78,6 +78,11 @@ var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
             templateData.totalPrice.cop = parsedPrice[4];
         }
 
+        var checkoutCredentials = CheckoutCredentials.findOne({isActive: true});
+        checkoutCredentials = _.pick(checkoutCredentials, 'account', 'mfo', 'code', 'bankName', 'receiver');
+
+        _.extend(templateData, checkoutCredentials);
+
         var paymentTemplate = Handlebars.templates['payment-template'];
         return paymentTemplate(templateData);
     };

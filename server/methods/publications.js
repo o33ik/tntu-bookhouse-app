@@ -1,7 +1,7 @@
 Meteor.methods({
     'createPublication': function (publicationObject, imageBase64, pdfBase64) {
         if (!AppTntu.canUser('createPublication', Meteor.userId())) {
-            throw new Meteor.Error('You don\'t have permissions to do this!');
+            throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
 
         check(publicationObject, AppTntu.documentsCheckers.publication);
@@ -22,7 +22,7 @@ Meteor.methods({
     'editPublication': function (publicationObject, imageBase64, pdfBase64) {
         console.log(Meteor.userId(), this);
         if (!AppTntu.canUser('editPublication', Meteor.userId())) {
-            throw new Meteor.Error('You don\'t have permissions to do this!');
+            throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
 
         check(publicationObject, AppTntu.documentsCheckers.publication);
@@ -47,7 +47,7 @@ Meteor.methods({
 
     'deletePublication': function (publicationId) {
         if (!AppTntu.canUser('deletePublication', Meteor.user())) {
-            throw new Meteor.Error('You don\'t have permissions to do this!');
+            throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
 
         var targetPublication = Publications.findOne(publicationId);

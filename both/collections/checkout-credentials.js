@@ -1,0 +1,1 @@
+CheckoutCredentials = new Mongo.Collection('checkout_credentials');

@@ -9,6 +9,9 @@ Meteor.startup(function () {
             case 'deletePublication':
             case 'addNews':
             case 'editNews':
+            case 'viewCheckoutCredentials':
+            case 'addCheckoutCredentials':
+            case 'editCheckoutCredentials':
                 return Roles.userIsInRole(userId, 'admin', Roles.GLOBAL_GROUP);
             default:
                 throw new Meteor.Error('Invalid action!');
