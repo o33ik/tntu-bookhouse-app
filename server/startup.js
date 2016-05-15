@@ -19,5 +19,19 @@ var createDefaultCheckoutCredentials = function () {
     });
 };
 
+var createDefauldAdmin = function () {
+    if (Meteor.users.find().count() > 0) {
+        return;
+    }
 
+    var admin = {
+        email: 'admin@admin.com',
+        password: 'admin'
+    };
+
+    var userId = Accounts.createUser(admin);
+    Roles.addUsersToRoles(userId, 'admin', Roles.GLOBAL_GROUP);
+};
+
+createDefauldAdmin();
 createDefaultCheckoutCredentials();
