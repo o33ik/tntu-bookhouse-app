@@ -7,13 +7,14 @@ Template.viewPublication.onRendered(function () {
         if (AppTntu.canUser('editPublication', Meteor.userId())) {
             Tracker.afterFlush(function () {
                 self.$('.dropdown-button').dropdown({
-                        inDuration: 300,
-                        outDuration: 225,
-                        gutter: 0,
-                        belowOrigin: true,
-                        alignment: 'right'
-                    }
-                );
+                    constrainwidth: false,
+                    inDuration: 300,
+                    outDuration: 225,
+                    gutter: 0,
+                    hover: true,
+                    belowOrigin: true,
+                    alignment: 'right'
+                });
             });
         }
     });

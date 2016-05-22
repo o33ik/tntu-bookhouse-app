@@ -1,27 +1,33 @@
 <template name="publicationsListFilters">
-    <div class="row">
-        <!-- Dropdown Trigger -->
-        <a class="dropdown-button btn" data-activates="sort-by">{{_ "sortBy"}}</a>
+    <div class="center-align">
+        <div class="row">
+            <!-- Dropdown Trigger -->
+            <a class="dropdown-button btn waves-light btn-flat" data-activates="sort-by">{{_ "sortBy"}}</a>
 
-        <a class="dropdown-button btn" data-activates="sort-direction">{{_ "sortDirection"}}</a>
+            <a class="dropdown-button btn waves-light btn-flat" data-activates="sort-direction">{{_ "sortDirection"}}</a>
 
-        <a class="dropdown-button btn"  data-activates="availability">{{_ "availability"}}</a>
+            <a class="dropdown-button btn waves-light btn-flat" data-activates="availability">{{_ "availability"}}</a>
 
 
+            <ul id="sort-by" class="dropdown-content">
+                <li><a id="createdAt">{{_ "publishDate"}}</a></li>
+                <li><a id="title">{{_ "title"}}</a></li>
+                <li><a id="price">{{_ "price"}}</a></li>
+                <li><a id="pagesNumber">{{_ "pagesNumber"}}</a></li>
+                <li><a id="year">{{_ "year"}}</a></li>
+                <!--<li><a id="title">{{_ "title"}}</a></li>-->
+            </ul>
 
-        <ul id="sort-by" class="dropdown-content">
-            <li><a id="createdAt">{{_ "publishDate"}}</a></li>
-        </ul>
+            <ul id="sort-direction" class="dropdown-content">
+                <li><a id="asc">{{_ "sortAsc"}}</a></li>
+                <li><a id="desc">{{_ "sortDesc"}}</a></li>
+            </ul>
 
-        <ul id="sort-direction" class="dropdown-content">
-            <li><a id="desc">{{_ "sortDesc"}}</a></li>
-            <li><a id="asc">{{_ "sortAsc"}}</a></li>
-        </ul>
-
-        <ul id="availability" class="dropdown-content">
-            <li><a id="all">{{_ "availabilityAll"}}</a></li>
-            <li><a id="hidden">{{_ "availabilityHidden"}}</a></li>
-            <li><a id="available">{{_ "availabilityAvailable"}}</a></li>
-        </ul>
+            <ul id="availability" class="dropdown-content">
+                <li><a id="all">{{_ "availabilityAll"}}</a></li>
+                <li><a id="hidden">{{_ "availabilityHidden"}}</a></li>
+                <li><a id="available">{{_ "availabilityAvailable"}}</a></li>
+            </ul>
+        </div>
     </div>
 </template>
