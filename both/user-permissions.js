@@ -6,7 +6,7 @@ Meteor.startup(function () {
             case 'deleteAuthor':
             case 'createPublication':
             case 'editPublication':
-            case 'deletePublication':
+            case 'changePublicationStatus':
             case 'addNews':
             case 'editNews':
             case 'viewCheckoutCredentials':

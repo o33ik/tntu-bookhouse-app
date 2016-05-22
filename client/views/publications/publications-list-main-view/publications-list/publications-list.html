@@ -3,6 +3,9 @@
         <div class="center-align">
             <h4>{{_ "newPublications"}}</h4>
         </div>
+
+        {{> publicationsListFilters}}
+
         {{#if canUser "createPublication"}}
             <div class="row create-publication-button-wrapper">
                 <a class="waves-effect waves-light btn create-publication-button">

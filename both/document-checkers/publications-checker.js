@@ -20,6 +20,7 @@ var PublicationChecker = Match.Where(function (publication) {
         createdAt: Match.Optional(Date),
         lastUpdatedAt: Match.Optional(Date),
         authorsIds: [String],
+        isHidden: Match.Optional(Boolean),
 
         isbn: String,
         udc: String,

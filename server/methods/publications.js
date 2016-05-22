@@ -45,18 +45,25 @@ Meteor.methods({
         return Publications.update(publicationObject._id, {$set: publicationObject});
     },
 
-    'deletePublication': function (publicationId) {
-        if (!AppTntu.canUser('deletePublication', Meteor.user())) {
+    'changePublicationStatus': function (publicationId, shouldBeHidden) {
+        if (!AppTntu.canUser('changePublicationStatus', Meteor.user())) {
             throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
 
-        var targetPublication = Publications.findOne(publicationId);
-
-        if (targetPublication) {
-            Images.remove(targetPublication.imageId);
-            PublicationsPdf.remove(targetPublication.pdfId);
-
-            return Publications.remove(publicationId);
+        var modifier = {};
+        if (shouldBeHidden) {
+            modifier.$set = {isHidden: true};
+        } else {
+            modifier.$unset = {isHidden: false};
         }
+        Publications.update(publicationId, modifier);
+
+        //var targetPublication = Publications.findOne(publicationId);
+        //if (targetPublication) {
+            //Images.remove(targetPublication.imageId);
+            //PublicationsPdf.remove(targetPublication.pdfId);
+            //
+            //return Publications.remove(publicationId);
+        //}
     }
 });

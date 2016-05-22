@@ -44,17 +44,19 @@
                 </div>
             </div>
 
-            <div class="row no-margin-bottom">
-                <div class="col s6">
-                    <a class="waves-effect waves-light btn buy-button">
-                        <i class="material-icons left">shopping_cart</i>
-                        {{_ "buy"}}
-                    </a>
+            {{#unless publication.isHidden}}
+                <div class="row no-margin-bottom">
+                    <div class="col s6">
+                        <a class="waves-effect waves-light btn buy-button">
+                            <i class="material-icons left">shopping_cart</i>
+                            {{_ "buy"}}
+                        </a>
+                    </div>
+                    <div class="col s6">
+                        <p>{{_ "bookPrice"}} {{publication.price}} {{_ "UAH"}}</p>
+                    </div>
                 </div>
-                <div class="col s6">
-                    <p>{{_ "bookPrice"}} {{publication.price}} {{_ "UAH"}}</p>
-                </div>
-            </div>
+            {{/unless}}
         </div>
     </div>
 </template>

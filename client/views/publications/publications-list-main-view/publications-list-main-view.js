@@ -1,5 +1,7 @@
 Template.publicationsListMainView.onCreated(function () {
     this.query = new ReactiveVar({});
+    this.sortOptions = new ReactiveVar({});
+
     var self = this;
 
     this.autorun(function () {
@@ -7,7 +9,8 @@ Template.publicationsListMainView.onCreated(function () {
             self.query.set(query);
 
             var limit = parseInt(FlowRouter.getQueryParam('limit')) || 10;
-            var options = {sort: {createdAt: 1}, limit: limit};
+            var sortOptions = self.sortOptions.get();
+            var options = {sort: sortOptions, limit: limit};
 
             self.subscribe('publications', _.clone(query), options);
         };
@@ -18,9 +21,17 @@ Template.publicationsListMainView.onCreated(function () {
         if (authorId) {
             query.authorsIds = authorId;
         }
+
         var type = FlowRouter.getQueryParam('type');
         if (type) {
             query.type = type;
+        }
+
+        var availability = FlowRouter.getQueryParam('availability');
+        if (availability == 'hidden') {
+            query.isHidden = true;
+        } else if (!availability || availability == 'available') {
+            query.isHidden = {$ne: true};
         }
 
         // if search string exist, need to get authors ids by name(search string) via server method
@@ -51,6 +62,15 @@ Template.publicationsListMainView.onCreated(function () {
         }
 
     });
+
+    this.autorun(function () {
+        var sortBy = FlowRouter.getQueryParam('sortBy') || 'createdAt';
+        var sortDirection = FlowRouter.getQueryParam('sortDirection');
+
+        var sortOptions = {};
+        sortOptions[sortBy] = sortDirection == 'asc' ? 1 : -1;
+        self.sortOptions.set(sortOptions);
+    });
 });
 
 Template.publicationsListMainView.onRendered(function () {
@@ -58,8 +78,10 @@ Template.publicationsListMainView.onRendered(function () {
 
 Template.publicationsListMainView.helpers({
     publications: function () {
-        var query = Template.instance().query.get();
-        var options = {sort: {createdAt: 1}};
+        var tmpl = Template.instance();
+
+        var query = tmpl.query.get();
+        var options = {sort: tmpl.sortOptions.get()};
         return Publications.find(query, options);
     },
 
