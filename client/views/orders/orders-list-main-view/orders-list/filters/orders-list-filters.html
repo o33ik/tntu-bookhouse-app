@@ -1,0 +1,50 @@
+<template name="ordersListFilters">
+    <div class="center-align">
+        <div class="row">
+            <!-- Dropdown Trigger -->
+            <a class="dropdown-button btn waves-light btn-flat" data-activates="sort-by">{{_ "sortBy"}}</a>
+
+            <a class="dropdown-button btn waves-light btn-flat"
+               data-activates="sort-direction">{{_ "sortDirection"}}</a>
+
+            <a class="dropdown-button btn waves-light btn-flat" data-activates="status">{{_ "status"}}</a>
+
+            <ul id="sort-by" class="dropdown-content">
+                <li><a id="placedAt">{{_ "placedAt"}}</a></li>
+                <li><a id="totalPrice">{{_ "totalPrice"}}</a></li>
+            </ul>
+
+            <ul id="sort-direction" class="dropdown-content">
+                <li><a id="asc">{{_ "sortAsc"}}</a></li>
+                <li><a id="desc">{{_ "sortDesc"}}</a></li>
+            </ul>
+
+            <ul id="status" class="dropdown-content">
+                <li>
+                    <a>
+                        <input id="placed" type="checkbox">
+                        <label for="placed">
+                            {{_ "placed"}}
+                        </label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <input id="paid" type="checkbox">
+                        <label for="paid">
+                            {{_ "paid"}}
+                        </label>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <input id="waitingConfirmation" type="checkbox">
+                        <label for="waitingConfirmation">
+                            {{_ "waitingConfirmation"}}
+                        </label>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>

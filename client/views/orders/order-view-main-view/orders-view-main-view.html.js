@@ -1,7 +1,7 @@
 Template.orderViewMainView.onCreated(function () {
     var self = this;
     this.autorun(function () {
-        self.subscribe('userOrders', FlowRouter.getParam('id'));
+        self.subscribe('orderItem', FlowRouter.getParam('id'));
     });
 });
 

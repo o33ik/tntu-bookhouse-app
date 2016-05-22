@@ -1,21 +1,15 @@
-Meteor.publishComposite('userOrders', function (id) {
+Meteor.publishComposite('orderItem', function (id) {
     return {
         find: function () {
-            var params = {};
-            if (this.userId) {
-                params.userId = this.userId;
-            } else if (id) {
-                params.userId = {$exists: false};
-                params._id = id;
-            } else {
-                return this.ready();
-            }
+            var params = {_id: id};
+            var isAdmin = Roles.userIsInRole(this.userId, 'admin', Roles.GLOBAL_GROUP);
 
-            if (id) {
-                params._id = id;
-                if (Roles.userIsInRole(this.userId, 'admin', Roles.GLOBAL_GROUP)) {
-                    // if admin wants to view details about concrete order
-                    params = _.omit(params, 'userId');
+            if (!isAdmin) {
+                params.userId = {$exists: false};
+                if (this.userId && !isAdmin) {
+                    params.userId = this.userId;
+                } else {
+                    return this.ready();
                 }
             }
 
@@ -25,17 +19,36 @@ Meteor.publishComposite('userOrders', function (id) {
     }
 });
 
-// for admins
-Meteor.publishComposite('allOrders', function () {
+Meteor.publishComposite('userOrders', function (params, options) {
     return {
         find: function () {
-            var params = {};
-            if (Roles.userIsInRole(this.userId, 'admin', Roles.GLOBAL_GROUP)) {
-            } else {
+            var isAdmin = Roles.userIsInRole(this.userId, 'admin', Roles.GLOBAL_GROUP);
+
+            if (!isAdmin) {
+                if (this.userId && !isAdmin) {
+                    params.userId = this.userId;
+                } else if (query._id || !isAdmin) {
+                    params.userId = {$exists: false};
+                } else {
+                    return this.ready();
+                }
+            }
+
+            return Orders.find(params, options);
+        },
+        children: childPublishes
+    }
+});
+
+// for admins
+Meteor.publishComposite('allOrders', function (query, options) {
+    return {
+        find: function () {
+            if (!Roles.userIsInRole(this.userId, 'admin', Roles.GLOBAL_GROUP)) {
                 return this.ready();
             }
 
-            return Orders.find(params);
+            return Orders.find(query, options);
         },
         children: childPublishes
     }

@@ -1,9 +1,8 @@
 <template name="ordersList">
-    <div class="">
+    <div class="row">
+        {{> ordersListFilters}}
         {{#each orders}}
-            {{>orderListItem
-            order=this
-            }}
+            {{>orderListItem order=this}}
         {{/each}}
     </div>
 </template>
