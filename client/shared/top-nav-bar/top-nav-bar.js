@@ -38,6 +38,12 @@ Template.topNavBar.events({
         tmpl.closeSideNav();
     },
 
+    'click .orders': function (event, tmpl) {
+        var scope = Roles.userIsInRole(Meteor.userId(), 'admin') ? 'all' : 'my';
+        FlowRouter.go('ordersList', {scope: scope});
+        tmpl.closeSideNav();
+    },
+
     'click #checkoutCredentials': function () {
         FlowRouter.go('checkoutCredentialsList');
     },

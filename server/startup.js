@@ -19,7 +19,7 @@ var createDefaultCheckoutCredentials = function () {
     });
 };
 
-var createDefauldAdmin = function () {
+var createDefaultAdmin = function () {
     if (Meteor.users.find().count() > 0) {
         return;
     }
@@ -33,5 +33,5 @@ var createDefauldAdmin = function () {
     Roles.addUsersToRoles(userId, 'admin', Roles.GLOBAL_GROUP);
 };
 
-createDefauldAdmin();
+createDefaultAdmin();
 createDefaultCheckoutCredentials();

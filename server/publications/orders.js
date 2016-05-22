@@ -1,9 +1,8 @@
-Meteor.publishComposite('orders', function (id) {
+Meteor.publishComposite('userOrders', function (id) {
     return {
         find: function () {
             var params = {};
-            if (Roles.userIsInRole(this.userId, 'admin', Roles.GLOBAL_GROUP)) {
-            } else if (this.userId) {
+            if (this.userId) {
                 params.userId = this.userId;
             } else if (id) {
                 params.userId = {$exists: false};
@@ -14,6 +13,26 @@ Meteor.publishComposite('orders', function (id) {
 
             if (id) {
                 params._id = id;
+                if (Roles.userIsInRole(this.userId, 'admin', Roles.GLOBAL_GROUP)) {
+                    // if admin wants to view details about concrete order
+                    params = _.omit(params, 'userId');
+                }
+            }
+
+            return Orders.find(params);
+        },
+        children: childPublishes
+    }
+});
+
+// for admins
+Meteor.publishComposite('allOrders', function () {
+    return {
+        find: function () {
+            var params = {};
+            if (Roles.userIsInRole(this.userId, 'admin', Roles.GLOBAL_GROUP)) {
+            } else {
+                return this.ready();
             }
 
             return Orders.find(params);

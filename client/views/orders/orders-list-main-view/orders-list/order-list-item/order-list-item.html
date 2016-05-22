@@ -17,7 +17,7 @@
                         {{#each order.items}}
                             {{#with orderItem id}}
                                 <li><a id="{{_id}}"
-                                       class="pointer underline-hover">{{title}} x {{../amount}}</a></li>
+                                       class="order-item pointer underline-hover">{{title}} x {{../amount}}</a></li>
                             {{/with}}
                         {{/each}}
                     </ol>

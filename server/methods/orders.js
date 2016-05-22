@@ -134,7 +134,7 @@ var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
 
     var orderId = Orders.insert(order);
 
-    sendEmail(orderId);
+    //sendEmail(orderId);
 
     Meteor.call('clearBucket');
     return orderId;

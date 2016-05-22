@@ -7,5 +7,9 @@ Template.orderListItem.helpers({
 Template.orderListItem.events({
     'click .card-title': function (event, tmpl) {
         FlowRouter.go('orderView', {id: tmpl.data.order._id});
+    },
+
+    'click .order-item': function (event) {
+        FlowRouter.go('viewPublication', {id: event.currentTarget.id});
     }
 });
