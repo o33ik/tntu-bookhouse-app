@@ -14,7 +14,7 @@
                     {{#if order.checkImageId}}
                         <a id="check-image" class="pointer underline-hover" target="_blank"
                            href="{{getPhotoUrlById order.checkImageId}}">{{_ "checkPhoto"}}</a>
-                        {{#if equal order.status "placed"}}
+                        {{#if equal order.status "waitingConfirmation"}}
                             <i class="delete-image pointer material-icons">delete</i>
                         {{/if}}
                     {{/if}}

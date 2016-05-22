@@ -24,13 +24,13 @@ Meteor.methods({
 
         var imageId = Images.insert(imageBase64)._id;
 
-        Orders.update(orderId, {$set: {checkImageId: imageId}});
+        Orders.update(orderId, {$set: {checkImageId: imageId, status: 'waitingConfirmation'}});
     },
 
     'deleteCheckFromOrder': function (orderId) {
         // check
 
-        Orders.update(orderId, {$unset: {checkImageId: false}});
+        Orders.update(orderId, {$unset: {checkImageId: false}, $set: {status: 'placed'}});
     },
 
     'confirmOrder': function (orderId) {

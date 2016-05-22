@@ -52,7 +52,7 @@ Template.viewPublication.events({
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Yes, delete it!",
-            closeOnConfirm: false
+            closeOnConfirm: true
         }, deletePublication);
     },
 

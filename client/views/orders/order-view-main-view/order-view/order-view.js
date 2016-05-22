@@ -31,7 +31,17 @@ Template.orderView.events({
     },
 
     'click .delete-image': function (event, tmpl) {
-        Meteor.call('deleteCheckFromOrder', tmpl.data.order._id);
+        swal({
+            title: "qwe",
+            text: "You will not be able to recover this imaginary file!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: true
+        }, function () {
+            Meteor.call('deleteCheckFromOrder', tmpl.data.order._id);
+        });
     },
 
     'click .payment-info': function (event, tmpl) {
