@@ -8,6 +8,8 @@ Meteor.publishComposite('orderItem', function (id) {
                 params.userId = {$exists: false};
                 if (this.userId && !isAdmin) {
                     params.userId = this.userId;
+                } else if (!isAdmin) {
+                    params.userId = {$exists: false};
                 } else {
                     return this.ready();
                 }

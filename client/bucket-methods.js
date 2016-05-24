@@ -50,7 +50,7 @@ AppTntu.bucket.clearBucket = function () {
             }
         });
     } else {
-        Cookie.set('bucket', '');
+        Cookie.remove('bucket');
     }
 };
 
@@ -98,6 +98,8 @@ AppTntu.bucket.getBucketItemsFromCookie = function () {
 
 var changeBucketInCookie = function (bookId, amount, remove) {
     var itemsInBucket = AppTntu.bucket.getBucketItemsFromCookie();
+    itemsInBucket = _.isArray(itemsInBucket) ? itemsInBucket : [];
+
     var existedItem = _.find(itemsInBucket, function (itemItem) {
         return itemItem.id == bookId;
     });
