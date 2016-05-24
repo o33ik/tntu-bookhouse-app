@@ -1,18 +1,118 @@
 {
-  "bookTitle":"Назва",
+  "bookTitle": "Назва",
   "bookDescription": "Опис",
-  "bookYear": "Рік",
-  "bookPagesNumber":"Кількість сторінок",
+  "bookYear": "Рік видання",
+  "bookPagesNumber": "Кількість сторінок",
   "bookContent": "Зміст",
   "bookPrice": "Вартість",
   "bookAuthors": "Автори",
+  "bookType": "Тип",
   "isbn": "ISBN",
   "udc": "УДК",
   "bbk": "ББК",
   "bookImage": "Зображення обкладинки",
-  "bookPdfView": "PDF зразок книги",
+  "bookPdfView": "PDF зразок",
+  "bookPdfDownload": "завантажити",
 
   "chooseAuthor": "Виберіть автора",
   "createNewAuthor": "Створити нового автора",
-  "authorName": "І’мя Автора"
+  "authorName": "Імя автора",
+
+  "chooseType": "Виберіть тип",
+
+
+  "newPublications": "Нові видання",
+
+  "pages": "сторінок",
+
+  "buy": "Купити",
+  "UAH": "Грн",
+
+  "addNew": "Створити",
+  "edit": "Редагувати",
+  "delete": "Видалити",
+
+  "about":"Про нас",
+  "authorsInformation":"Для авторів",
+  "customerInformation":"Для клієнтів",
+
+  "publications": "Видання",
+  "allPublications": "Всі",
+
+  "sciencePublications": "Наукові",
+  "monographs": "Монографії",
+  "conferenceMaterials": "Конференційні матеріали",
+  "other": "Інше",
+
+  "studiesPublications": "Навчальні",
+  "socioPoliticalPublications": "Соціально-політичні",
+  "literaryAndArtPublication": "Літературні та художні",
+
+  "attachCheckToOrder": "Прикріпити копію чеку",
+  "confirmPaid": "Підтвердити замовлення",
+
+  "attach": "Додати",
+
+  "other": "Інше",
+
+  "bucket": "Кошик",
+  "orders": "Замовлення",
+  "checkoutCredentials": "Реквізити на оплату",
+
+  "totalPrice": "Загальна вартість",
+  "clearBucket": "Очистити корзину",
+  "placeOrder": "Зробити замовлення",
+  "bucketIsEmpty": "Корзина порожня",
+
+  "amount": "Кількість",
+
+  "name": "Імя",
+  "mobileNumber": "Мобільний телефон",
+  "address": "Адреса доставки",
+  "confirm": "Підтвердити",
+
+  "account": "Рахунок",
+  "mfo": "МФО",
+  "receiver": "Отримувач",
+  "add": "Додати",
+
+  "checkoutCredentialActive": "",
+  "checkoutCredentialDisabled": "",
+
+  "cancel": "Відмінити",
+  "Submit": "Підтвердити",
+
+
+  "orderStatus": "Статус замовлення",
+  "checkPhoto": "Копія чеку про оплату",
+  "deliveryInfo": "Інформація про доставку",
+
+  "sortBy": "Сортувати за",
+  "sortDirection": "Напрямок сортування",
+  "placedAt": "Дата створення",
+  "sortAsc": "За зростанням",
+  "sortDesc": "За спаданням",
+  "placed": "Розміщений",
+  "paid": "Оплачений",
+  "waitingConfirmation": "Очікує підтвердження",
+
+  "orderContent": "Склад замовлення",
+
+  "create": "Створити",
+
+  "loadMore": "Завантажити більше",
+
+  "availability": "Доступність",
+
+  "publishDate": "Дата видання",
+
+  "availabilityAll":"Всі",
+  "availabilityHidden": "Не доступні",
+  "availabilityAvailable": "Доступні",
+
+  "edit": "Редагувати",
+  "hidePublication": "Приховати",
+  "showPublication": "Показати",
+
+  "paymentInfo": "Інформація про оплату"
 }

@@ -7,18 +7,17 @@
             <div class="col s9">
                 {{#if canUser "editPublication"}}
                     <div class="settings-button-wrapper">
-                        <a class="dropdown-button pointer" data-activates="settings-dropdown">
-                            <i class="material-icons">settings</i>
-                        </a>
+                        <a class="dropdown-button pointer waves-effect waves-light
+                         btn btn-flat" data-activates="settings-dropdown">{{_ "settings"}}</a>
                         <ul id="settings-dropdown" class="dropdown-content">
                             <li class="edit-publication-button"><a>{{_ "edit"}}</a></li>
                             <li class="change-publication-status-button">
                                 <a>
-                                    {{#if publication.isHidden}}
+                                    {{#unless publication.isHidden}}
                                         {{_ "hidePublication"}}
                                     {{else}}
                                         {{_ "showPublication"}}
-                                    {{/if}}
+                                    {{/unless}}
                                 </a>
                             </li>
                         </ul>

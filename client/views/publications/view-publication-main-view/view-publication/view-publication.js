@@ -7,11 +7,9 @@ Template.viewPublication.onRendered(function () {
         if (AppTntu.canUser('editPublication', Meteor.userId())) {
             Tracker.afterFlush(function () {
                 self.$('.dropdown-button').dropdown({
-                    constrainwidth: false,
                     inDuration: 300,
                     outDuration: 225,
                     gutter: 0,
-                    hover: true,
                     belowOrigin: true,
                     alignment: 'right'
                 });
@@ -35,12 +33,7 @@ Template.viewPublication.events({
     },
     'click .change-publication-status-button': function (event, tmpl) {
         var isHidden = tmpl.data.publication.isHidden;
-        Meteor.call('changePublicationStatus', tmpl.data.publication._id, !isHidden,
-            function () {
-                if (!isHidden) {
-                    FlowRouter.go('publicationsList');
-                }
-            });
+        Meteor.call('changePublicationStatus', tmpl.data.publication._id, !isHidden);
     },
 
     'click .buy-button': function (event, tmpl) {

@@ -45,6 +45,7 @@ Template.topNavBar.events({
 
     'click #checkoutCredentials': function () {
         FlowRouter.go('checkoutCredentialsList');
+        tmpl.closeSideNav();
     },
 
     'submit .search-form': function (event, tmpl) {

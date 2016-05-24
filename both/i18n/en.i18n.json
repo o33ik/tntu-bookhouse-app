@@ -49,6 +49,7 @@
   "literaryAndArtPublication": "Literary and art",
 
   "attachCheckToOrder": "Attach check to the order",
+  "confirmPaid": "Confirm paid",
 
   "attach": "Attach",
 
@@ -56,16 +57,14 @@
   "about": "About",
 
   "bucket": "Bucket",
-  "order": "Orders",
+  "orders": "Orders",
   "checkoutCredentials": "Checkout credentials",
 
-  "totalBucket": "Total price",
   "clearBucket": "Clear the bucket",
   "placeOrder": "Place order",
   "bucketIsEmpty": "Bucket is empty",
 
   "amount": "Amount",
-  "total": "Total",
 
   "name": "Name",
   "mobileNumber": "Mobile number",
@@ -92,8 +91,8 @@
   "sortBy": "Sort by",
   "sortDirection": "Sort direction",
   "placedAt": "Placed at",
-  "asc": "Asc",
-  "desc": "Desc",
+  "sortAsc": "Asc",
+  "sortDesc": "Desc",
   "placed": "Placed",
   "paid": "Paid",
   "waitingConfirmation": "Waiting confirmation",
@@ -114,6 +113,8 @@
   "availabilityAvailable": "Available",
 
   "edit": "Edit",
-  "hidePublication": "Hide the publication",
-  "showPublication": "Show the publication"
+  "hidePublication": "Hide",
+  "showPublication": "Show",
+
+  "paymentInfo": "Payment info"
 }
