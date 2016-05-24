@@ -46,5 +46,74 @@
 
   "studiesPublications": "Studies",
   "socioPoliticalPublications": "Socio-political",
-  "literaryAndArtPublication": "Literary and art"
+  "literaryAndArtPublication": "Literary and art",
+
+  "attachCheckToOrder": "Attach check to the order",
+
+  "attach": "Attach",
+
+  "other": "Other",
+  "about": "About",
+
+  "bucket": "Bucket",
+  "order": "Orders",
+  "checkoutCredentials": "Checkout credentials",
+
+  "totalBucket": "Total price",
+  "clearBucket": "Clear the bucket",
+  "placeOrder": "Place order",
+  "bucketIsEmpty": "Bucket is empty",
+
+  "amount": "Amount",
+  "total": "Total",
+
+  "name": "Name",
+  "mobileNumber": "Mobile number",
+  "address": "Delivery address",
+  "confirm": "Confirm",
+
+  "account": "Account",
+  "mfo": "MFO",
+  "receiver": "Receiver",
+  "add": "Add",
+
+  "checkoutCredentialActive": "",
+  "checkoutCredentialDisabled": "",
+
+  "cancel": "Cancel",
+  "Submit": "Submit",
+
+  "order": "Order",
+  "totalPrice": "Total price",
+  "orderStatus": "Status",
+  "checkPhoto": "Check scan copy",
+  "deliveryInfo": "Delivery info",
+
+  "sortBy": "Sort by",
+  "sortDirection": "Sort direction",
+  "placedAt": "Placed at",
+  "asc": "Asc",
+  "desc": "Desc",
+  "placed": "Placed",
+  "paid": "Paid",
+  "waitingConfirmation": "Waiting confirmation",
+
+  "orderContent": "Order content",
+
+  "create": "Create",
+
+  "newPublications": "New publications",
+  "loadMore": "Load more",
+
+  "availability": "Availability",
+
+  "publishDate": "Date of publish",
+
+  "availabilityAll":"All",
+  "availabilityHidden": "Unavailable",
+  "availabilityAvailable": "Available",
+
+  "edit": "Edit",
+  "hidePublication": "Hide the publication",
+  "showPublication": "Show the publication"
 }

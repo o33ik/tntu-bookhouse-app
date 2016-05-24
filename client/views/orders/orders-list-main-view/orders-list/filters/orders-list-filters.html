@@ -22,7 +22,8 @@
             <ul id="status" class="dropdown-content">
                 <li>
                     <a>
-                        <input id="placed" type="checkbox">
+                        <input id="placed" type="checkbox"
+                               checked="{{#if arrayContainsElement selectedStatuses "placed"}}checked{{/if}}">
                         <label for="placed">
                             {{_ "placed"}}
                         </label>
@@ -30,7 +31,8 @@
                 </li>
                 <li>
                     <a>
-                        <input id="paid" type="checkbox">
+                        <input id="paid" type="checkbox"
+                               checked="{{#if arrayContainsElement selectedStatuses "paid"}}checked{{/if}}">
                         <label for="paid">
                             {{_ "paid"}}
                         </label>
@@ -38,7 +40,8 @@
                 </li>
                 <li>
                     <a>
-                        <input id="waitingConfirmation" type="checkbox">
+                        <input id="waitingConfirmation" type="checkbox"
+                               checked="{{#if arrayContainsElement selectedStatuses "waitingConfirmation"}}checked{{/if}}">
                         <label for="waitingConfirmation">
                             {{_ "waitingConfirmation"}}
                         </label>

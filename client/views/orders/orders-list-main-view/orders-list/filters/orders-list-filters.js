@@ -1,5 +1,4 @@
-Template.ordersListFilters.onCreated(function () {
-});
+Template.ordersListFilters.onCreated(function () {});
 
 Template.ordersListFilters.onRendered(function () {
     $('.dropdown-button').dropdown({
@@ -10,6 +9,12 @@ Template.ordersListFilters.onRendered(function () {
             belowOrigin: true
         }
     );
+});
+
+Template.ordersListFilters.helpers({
+    selectedStatuses: function () {
+        return FlowRouter.getQueryParam('statuses') || [];
+    }
 });
 
 Template.ordersListFilters.events({

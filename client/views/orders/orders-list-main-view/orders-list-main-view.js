@@ -7,9 +7,11 @@ Template.ordersListMainView.onCreated(function () {
     this.autorun(function () {
         var query = {};
 
-        var selectedStatuses = FlowRouter.getQueryParam('statuses') || ['waitingConfirmation'];
+        var selectedStatuses = FlowRouter.getQueryParam('statuses');
 
-        query.status = {$in: selectedStatuses};
+        if (selectedStatuses) {
+            query.status = {$in: selectedStatuses};
+        }
         self.queryParams.set(query);
     });
 
@@ -45,5 +47,9 @@ Template.ordersListMainView.helpers({
         var query = tmpl.queryParams.get();
         var sortOptions = tmpl.sortOptions.get();
         return Orders.find(query, {sort: sortOptions});
+    },
+
+    queryParams: function () {
+        return Template.instance().queryParams.get();
     }
 });
