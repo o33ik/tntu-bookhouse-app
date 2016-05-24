@@ -1,7 +1,4 @@
 Template.publicationsList.onRendered(function () {
-    this.$('.dropdown-button').dropdown({
-        belowOrigin: true
-    });
 });
 
 Template.publicationsList.events({
