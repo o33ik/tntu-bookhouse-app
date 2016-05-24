@@ -9,8 +9,8 @@ Template.topNavBar.onRendered(function () {
 });
 
 Template.topNavBar.helpers({
-    activeMenuItem: function () {
-        return;
+    'searchString': function () {
+        return FlowRouter.getQueryParam('search');
     }
 });
 
