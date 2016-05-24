@@ -4,7 +4,7 @@ AppTntu.bucket.addItemToBucket = function (bookId) {
     if (Meteor.user()) {
         Meteor.call('addItemToBucket', bookId, function (err, res) {
             if (err) {
-                console.log(err);
+                AppTntu.notify(err.message);
             } else {
                 Materialize.toast('Item was added to the bucket', 3000);
             }
@@ -18,7 +18,7 @@ AppTntu.bucket.changeAmountOfItem = function (bookId, amount) {
     if (Meteor.user()) {
         Meteor.call('changeAmountOfItem', bookId, amount, function (err, res) {
             if (err) {
-                console.log(err);
+                AppTntu.notify(err.message);
             }
         });
     } else {
@@ -30,7 +30,7 @@ AppTntu.bucket.removeItemFromBucket = function (bookId) {
     if (Meteor.user()) {
         Meteor.call('removeItemFromBucket', bookId, function (err, res) {
             if (err) {
-                console.log(err);
+                AppTntu.notify(err.message);
             } else {
                 Materialize.toast('Item was removed from the bucket', 3000);
             }
@@ -44,7 +44,7 @@ AppTntu.bucket.clearBucket = function () {
     if (Meteor.user()) {
         Meteor.call('clearBucket', function (err, res) {
             if (err) {
-                console.log(err);
+                AppTntu.notify(err.message);
             } else {
                 Materialize.toast('Bucket was cleared', 3000);
             }
@@ -79,7 +79,7 @@ AppTntu.bucket.placeOrder = function () {
             Meteor.call('placeOrderNotLogged', bucketItems, deliveryInfo,
                 function (err, res) {
                     if (err) {
-                        console.log(err);
+                        AppTntu.notify(err.message);
                     } else {
                         AppTntu.bucket.clearBucket();
                         FlowRouter.go('orderView', {id: res});

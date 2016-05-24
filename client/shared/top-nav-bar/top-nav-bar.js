@@ -10,7 +10,6 @@ Template.topNavBar.onRendered(function () {
 
 Template.topNavBar.helpers({
     activeMenuItem: function () {
-        console.log(FlowRouter.current());
         return;
     }
 });

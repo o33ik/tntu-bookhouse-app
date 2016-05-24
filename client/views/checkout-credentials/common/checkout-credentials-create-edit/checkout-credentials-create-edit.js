@@ -25,7 +25,7 @@ Template.checkoutCredentialsCreateEdit.events({
             doc._id = tmpl.data.checkoutCredentials._id;
             Meteor.call('editCheckoutCredentials', doc, function (err, res) {
                 if (err) {
-                    console.log(err);
+                    AppTntu.notify(err.message);
                 } else {
                     FlowRouter.go('checkoutCredentialsList');
                 }
@@ -33,7 +33,7 @@ Template.checkoutCredentialsCreateEdit.events({
         } else {
             Meteor.call('addNewCheckoutCredentials', doc, function (err, res) {
                 if (err) {
-                    console.log(err);
+                    AppTntu.notify(err.message);
                 } else {
                     FlowRouter.go('checkoutCredentialsList');
                 }

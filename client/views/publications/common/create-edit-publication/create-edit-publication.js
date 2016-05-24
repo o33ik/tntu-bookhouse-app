@@ -41,7 +41,8 @@ Template.createEditPublication.onCreated(function () {
             Meteor.call('editPublication', document, imageBase64, pdfBase64,
                 function (err, res) {
                     if (err) {
-                        console.log(err);
+                        AppTntu.notify(err.message);
+                        tmpl.$('.submit-button').removeClass('disabled');
                     } else {
                         FlowRouter.go('viewPublication', {id: publicationId});
                     }
@@ -50,7 +51,8 @@ Template.createEditPublication.onCreated(function () {
             Meteor.call('createPublication', document, self.imageBase64.get(),
                 self.pdfBase64.get(), function (err, res) {
                     if (err) {
-                        console.log(err);
+                        AppTntu.notify(err.message);
+                        tmpl.$('.submit-button').removeClass('disabled');
                     } else {
                         FlowRouter.go('viewPublication', {id: res});
                     }
@@ -140,6 +142,7 @@ Template.createEditPublication.helpers({
 Template.createEditPublication.events({
     'submit #create-edit-publication-form': function (event, tmpl) {
         event.preventDefault();
+        tmpl.$('.submit-button').addClass('disabled');
         tmpl.onSubmit(event, tmpl);
     },
 
@@ -161,7 +164,7 @@ Template.createEditPublication.events({
         var file = event.target.files[0];
         if (file) {
             if (file.size > 2 * 1000 * 1000) {
-                console.log('file should be less that 2Mb');
+                AppTntu.notify('File should be less that 2Mb');
             } else {
                 reader.readAsDataURL(file);
             }

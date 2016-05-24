@@ -19,7 +19,7 @@ Template.orderView.events({
     'click .confirm-paid-button': function (event, tmpl) {
         Meteor.call('confirmOrder', tmpl.data.order._id, function (err, res) {
             if (err) {
-                console.log(err);
+                AppTntu.notify(err.message);
             } else {
                 console.log(res);
             }

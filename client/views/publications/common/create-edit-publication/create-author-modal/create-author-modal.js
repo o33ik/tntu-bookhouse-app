@@ -26,7 +26,7 @@ Template.createAuthorModal.events({
 
         Meteor.call('createAuthor', authorDocument, function (err, res) {
             if (err) {
-                console.log(err);
+                AppTntu.notify(err.message);
             } else {
                 tmpl.data.addAuthor(res);
                 tmpl.removeTemplate();

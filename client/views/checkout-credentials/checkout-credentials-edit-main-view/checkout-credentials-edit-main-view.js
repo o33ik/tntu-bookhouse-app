@@ -2,7 +2,6 @@ Template.checkoutCredentialsEditMainView.onCreated(function () {
     var self = this;
 
     this.redirect = _.after(function () {
-        console.log('You can\'t edit checkout credentials!');
         FlowRouter.go('publicationsList');
     }, 1);
     this.autorun(function () {

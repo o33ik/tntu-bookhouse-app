@@ -20,12 +20,9 @@ Meteor.methods({
     },
 
     'editPublication': function (publicationObject, imageBase64, pdfBase64) {
-        console.log(Meteor.userId(), this);
         if (!AppTntu.canUser('editPublication', Meteor.userId())) {
             throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
-
-        check(publicationObject, AppTntu.documentsCheckers.publication);
 
         var targetPublication = Publications.findOne(publicationObject._id);
 

@@ -39,7 +39,7 @@ Template.publicationsListMainView.onCreated(function () {
         if (searchString) {
             Meteor.call('getAuthorsIdsBySearchString', searchString, function (err, res) {
                 if (err) {
-                    console.log(err);
+                    AppTntu.notify(err.message);
                 } else {
                     var regex = {$regex: searchString, $options: 'gim'};
                     query.$or = [

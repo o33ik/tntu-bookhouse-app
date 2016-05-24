@@ -2,7 +2,6 @@ Template.checkoutCredentialsListMainView.onCreated(function () {
     var self = this;
 
     this.redirect = _.after(function () {
-        console.log('You can\'t view checkout credentials!');
         FlowRouter.go('publicationsList');
     }, 1);
     this.autorun(function () {

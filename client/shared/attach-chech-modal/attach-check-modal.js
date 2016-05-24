@@ -34,7 +34,7 @@ Template.attachCheckModal.events({
         Meteor.call('attachCheckToOrder', tmpl.data.order._id, tmpl.imageBase64,
             function (err, res) {
                 if (err) {
-                    console.log(err);
+                    AppTntu.notify(err.message);
                 }
             });
 
