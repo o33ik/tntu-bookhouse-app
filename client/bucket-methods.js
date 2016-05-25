@@ -83,6 +83,7 @@ AppTntu.bucket.placeOrder = function () {
                     } else {
                         AppTntu.bucket.clearBucket();
                         FlowRouter.go('orderView', {id: res});
+                        addOrderIdToCookie(res);
                     }
                 });
         }
@@ -126,4 +127,11 @@ var changeBucketInCookie = function (bookId, amount, remove) {
         Materialize.toast('Item was removed from the bucket', 3000);
     }
     Cookie.set('bucket', JSON.stringify(itemsInBucket));
+};
+
+var addOrderIdToCookie = function (id) {
+    var str = Cookie.get('ordersIds');
+    var currentOrdersIds = str ? JSON.parse(str) : [];
+    currentOrdersIds.push(id);
+    Cookie.set('ordersIds', JSON.stringify(currentOrdersIds));
 };

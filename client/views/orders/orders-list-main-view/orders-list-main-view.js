@@ -12,6 +12,13 @@ Template.ordersListMainView.onCreated(function () {
         if (selectedStatuses) {
             query.status = {$in: selectedStatuses};
         }
+
+        if (!Meteor.userId()) {
+            var str = Cookie.get('ordersIds');
+            var ids = str ? JSON.parse(str) : [];
+            query._id = {$in: ids};
+        }
+
         self.queryParams.set(query);
     });
 
@@ -20,6 +27,7 @@ Template.ordersListMainView.onCreated(function () {
 
         var query = self.queryParams.get();
         var sortOptions = self.sortOptions.get();
+
         switch (ordersScope) {
             case 'all':
                 self.subscribe('allOrders', query, {sort: sortOptions});

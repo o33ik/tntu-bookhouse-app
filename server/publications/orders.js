@@ -27,9 +27,9 @@ Meteor.publishComposite('userOrders', function (params, options) {
             var isAdmin = Roles.userIsInRole(this.userId, 'admin', Roles.GLOBAL_GROUP);
 
             if (!isAdmin) {
-                if (this.userId && !isAdmin) {
+                if (this.userId) {
                     params.userId = this.userId;
-                } else if (query._id || !isAdmin) {
+                } else if (params._id) {
                     params.userId = {$exists: false};
                 } else {
                     return this.ready();
@@ -43,14 +43,14 @@ Meteor.publishComposite('userOrders', function (params, options) {
 });
 
 // for admins
-Meteor.publishComposite('allOrders', function (query, options) {
+Meteor.publishComposite('allOrders', function (params, options) {
     return {
         find: function () {
             if (!Roles.userIsInRole(this.userId, 'admin', Roles.GLOBAL_GROUP)) {
                 return this.ready();
             }
 
-            return Orders.find(query, options);
+            return Orders.find(params, options);
         },
         children: childPublishes
     }
@@ -72,5 +72,4 @@ var childPublishes = [{
     find: function (order) {
         return Images.find({_id: order.checkImageId});
     }
-}
-];
+}];
