@@ -1,53 +1,69 @@
 <template name="orderView">
-    <div class="row">
-        <div class="row center-align">
-            <h4>{{_ "order"}} №{{order.orderNumber}}, {{formatDate order.placedAt "DD.MM.YYYY HH:mm"}}</h4>
+    <div class="adv-preview">
+        <div class="row">
+            <div class="adv-head">
+                <div class="left-content">
+                    <h2><a>{{_ "orderBy"}} {{formatDate order.placedAt "DD.MM.YYYY HH:mm"}}</a></h2>
+                </div>
+            </div>
         </div>
 
         <div class="row">
-            <div class="col s6">
-                <div class="row">
-                    <p>{{_ "totalPrice"}}: {{roundPrice order.totalPrice}}</p>
-                </div>
-                <div class="row">
-                    <p>{{_ "orderStatus"}}: {{_ order.status}}</p>
-                    {{#if order.checkImageId}}
-                        <a id="check-image" class="pointer underline-hover" target="_blank"
-                           href="{{getPhotoUrlById order.checkImageId}}">{{_ "checkPhoto"}}</a>
-                        {{#if equal order.status "waitingConfirmation"}}
-                            <i class="delete-image pointer material-icons">delete</i>
-                        {{/if}}
-                    {{/if}}
-                </div>
-                <div class="row">
-                    <p>{{_ "deliveryInfo"}}:</p>
+            <div class="preview-body">
+                <div class="col l4 s12 no-padding">
+                    <div class="details">
+                        <div class="single">
+                            <h6>{{_ "totalPrice"}}:</h6>
 
-                    <p>{{order.deliveryInfo.name}}</p>
+                            <p>{{roundPrice order.totalPrice}}</p>
+                        </div>
 
-                    <p>{{order.deliveryInfo.email}}</p>
+                        <div class="single">
+                            <h6>{{_ "orderStatus"}}:</h6>
 
-                    <p>{{order.deliveryInfo.address}}</p>
+                            <p>{{_ order.status}}</p>
+                        </div>
+
+                        <div class="single">
+                            {{#if order.checkImageId}}
+                                <h6 class="pointer ">
+                                    <a class="underline-hover" target="_blank"
+                                       href="{{getPhotoUrlById order.checkImageId}}">{{_ "checkPhoto"}}</a>
+                                    {{#if equal order.status "waitingConfirmation"}}
+                                        <i class="delete-image pointer material-icons">delete</i>
+                                    {{/if}}</h6>
+                            {{/if}}
+                        </div>
+
+                        <div class="single">
+                            <h6>{{_ "deliveryInfo"}}:</h6>
+
+                            <p>{{order.deliveryInfo.name}}</p>
+
+                            <p>{{order.deliveryInfo.email}}</p>
+
+                            <p>{{order.deliveryInfo.address}}</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    <a class="payment-info underline-hover pointer">{{_ "paymentInfo"}}</a>
-                </div>
-            </div>
 
-            <div class="col s6">
-                <div class="row">
-                    <ul class="collection">
+                <div class="col l8 s12 no-padding">
+                    <div class="order-items">
                         {{#each order.items}}
                             {{#with orderItem id}}
-                                <li class="collection-item avatar">
-                                    <img src="{{getPhotoUrlById imageId}}" class="circle">
-                                    <span id="{{_id}}" class="title
+                                <div class="order-item row">
+                                    <img src="{{getPhotoUrlById imageId}}" class="circle item-img">
+
+                                    <div class="item-details">
+                                            <span id="{{_id}}" class="title
                                         underline-hover pointer">{{title}}</span>
 
-                                    <p>{{../amount}} {{_ "items"}}</p>
-                                </li>
+                                        <p>{{../amount}} {{_ "items"}}</p>
+                                    </div>
+                                </div>
                             {{/with}}
                         {{/each}}
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
