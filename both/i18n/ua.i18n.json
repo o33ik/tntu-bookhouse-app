@@ -114,5 +114,7 @@
   "hidePublication": "Приховати",
   "showPublication": "Показати",
 
-  "paymentInfo": "Інформація про оплату"
+  "paymentInfo": "Інформація про оплату",
+
+  "orderBy": "Замовлення від"
 }

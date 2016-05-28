@@ -4,8 +4,10 @@
             {{> findOrderForm}}
         {{/unless}}
         {{> ordersListFilters}}
-        {{#each orders}}
-            {{>orderListItem order=this}}
-        {{/each}}
+        <div class="search-list-container">
+            {{#each orders}}
+                {{>orderListItem order=this}}
+            {{/each}}
+        </div>
     </div>
 </template>

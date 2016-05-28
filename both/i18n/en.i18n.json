@@ -116,5 +116,7 @@
   "hidePublication": "Hide",
   "showPublication": "Show",
 
-  "paymentInfo": "Payment info"
+  "paymentInfo": "Payment info",
+
+  "orderBy": "Order by"
 }

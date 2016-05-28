@@ -1,0 +1,110 @@
+@import "variables.less";
+
+.search-list-container {
+  border-radius: @4px;
+  background-color: @white;
+  box-shadow: @0px @3px @4px @0px rgba(0, 0, 0, 0.31);
+  padding: 0 @28px;
+  margin-top: @15px;
+  .single {
+    border-bottom: @1px solid @black1;
+    overflow: auto;
+    padding: @26px 0;
+    &:last-child {
+      border-bottom: none;
+    }
+    .left-content {
+      float: left;
+      h2 {
+        font-size: @20px;
+        font-weight: bold;
+        color: @black7;
+        margin: 0;
+        padding: 0;
+        @media (max-width: 460px) {
+          font-size: @16px;
+        }
+        a {
+          color: @black6;
+        }
+        span.label {
+          background-color: @theme;
+          color: @white8;
+          font-size: @10px;
+          font-weight: 400;
+          display: inline-block;
+          padding: 0 @10px;
+          border-radius: @2px;
+          margin-left: @15px;
+        }
+      }
+      ul {
+        margin: 0;
+        margin-top: @8px;
+        li {
+          display: inline-block;
+          a {
+            font-size: @13px;
+            color: @black6;
+            padding: 0 @9px;
+            font-weight: 500;
+            &:hover {
+              color: @theme;
+            }
+            &:first-child {
+              padding-left: 0;
+            }
+            &:after {
+              content: '';
+              display: inline-block;
+              width: @6px;
+              height: @6px;
+              border-radius: 50%;
+              margin-left: @10px;
+              background-color: @black3;
+            }
+          }
+          a.job-type {
+            text-transform: uppercase;
+            color: @black5;
+            font-weight: 500;
+          }
+          &:last-child {
+            a:after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .right-content {
+      float: right;
+      text-align: right;
+      @media (max-width: 600px) {
+        float: left;
+        text-align: left;
+        display: block;
+        width: 100%;
+        margin-top: @20px;
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        color: #c7c7c7;
+        margin: 0;
+        padding: 0;
+        &.active {
+          color: #ffc36b;
+        }
+      }
+      p {
+        margin: 0;
+        padding: 0;
+        font-size: @13px;
+        color: @black6;
+        font-weight: 500;
+      }
+    }
+  }
+}
