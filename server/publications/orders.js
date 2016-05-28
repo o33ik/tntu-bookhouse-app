@@ -29,10 +29,8 @@ Meteor.publishComposite('userOrders', function (params, options) {
             if (!isAdmin) {
                 if (this.userId) {
                     params.userId = this.userId;
-                } else if (params._id) {
-                    params.userId = {$exists: false};
                 } else {
-                    return this.ready();
+                    params.userId = {$exists: false};
                 }
             }
 

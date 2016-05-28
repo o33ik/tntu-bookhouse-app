@@ -1,5 +1,8 @@
 <template name="ordersList">
     <div class="row">
+        {{#unless currentUser}}
+            {{> findOrderForm}}
+        {{/unless}}
         {{> ordersListFilters}}
         {{#each orders}}
             {{>orderListItem order=this}}

@@ -14,9 +14,14 @@ Template.ordersListMainView.onCreated(function () {
         }
 
         if (!Meteor.userId()) {
-            var str = Cookie.get('ordersIds');
-            var ids = str ? JSON.parse(str) : [];
-            query._id = {$in: ids};
+            var phoneNumber = FlowRouter.getQueryParam('phoneNumber');
+            if (phoneNumber) {
+                query['deliveryInfo.mobileNumber'] = phoneNumber;
+            } else {
+                var str = Cookie.get('ordersIds');
+                var ids = str ? JSON.parse(str) : [];
+                query._id = {$in: ids};
+            }
         }
 
         self.queryParams.set(query);
