@@ -45,7 +45,7 @@ Template.topNavBar.events({
         tmpl.closeSideNav();
     },
 
-    'click #checkoutCredentials': function () {
+    'click #checkoutCredentials': function (event, tmpl) {
         FlowRouter.go('checkoutCredentialsList');
         tmpl.closeSideNav();
     },
