@@ -3,6 +3,7 @@ import Publications from '/both/collections/publications.js';
 import CheckoutCredentials from '/both/collections/checkout-credentials.js';
 import Buckets from '/both/collections/buckets.js';
 import Images from '/server/cfs-collections/images.js';
+import { Email } from 'meteor/email';
 
 Meteor.methods({
     'placeOrderLoggedIn': function (deliveryInfo) {
