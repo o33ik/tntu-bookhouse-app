@@ -1,5 +1,6 @@
 import Images from '/client/cfs-collections/images.js';
 import PublicationsPdf from '/client/cfs-collections/publications-pdf.js';
+import notify from '/client/notify.js';
 
 Template.createEditPublication.onCreated(function () {
     var self = this;
@@ -43,7 +44,7 @@ Template.createEditPublication.onCreated(function () {
             Meteor.call('editPublication', document, imageBase64, pdfBase64,
                 function (err, res) {
                     if (err) {
-                        AppTntu.notify(err.message);
+                        notify(err.message);
                         tmpl.$('.submit-button').removeClass('disabled');
                     } else {
                         FlowRouter.go('viewPublication', {id: publicationId});
@@ -53,7 +54,7 @@ Template.createEditPublication.onCreated(function () {
             Meteor.call('createPublication', document, self.imageBase64.get(),
                 self.pdfBase64.get(), function (err, res) {
                     if (err) {
-                        AppTntu.notify(err.message);
+                        notify(err.message);
                         tmpl.$('.submit-button').removeClass('disabled');
                     } else {
                         FlowRouter.go('viewPublication', {id: res});
@@ -166,7 +167,7 @@ Template.createEditPublication.events({
         var file = event.target.files[0];
         if (file) {
             if (file.size > 2 * 1000 * 1000) {
-                AppTntu.notify('File should be less that 2Mb');
+                notify('File should be less that 2Mb');
             } else {
                 reader.readAsDataURL(file);
             }

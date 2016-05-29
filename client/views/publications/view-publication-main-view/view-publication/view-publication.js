@@ -1,10 +1,13 @@
+import canUser from '/both/user-permissions.js';
+import cookieBucket from '/client/bucket-methods.js';
+
 Template.viewPublication.onCreated(function () {
 });
 
 Template.viewPublication.onRendered(function () {
     var self = this;
     this.autorun(function () {
-        if (AppTntu.canUser('editPublication', Meteor.userId())) {
+        if (canUser('editPublication', Meteor.userId())) {
             Tracker.afterFlush(function () {
                 self.$('.dropdown-button').dropdown({
                     inDuration: 300,
@@ -37,6 +40,6 @@ Template.viewPublication.events({
     },
 
     'click .buy-button': function (event, tmpl) {
-        AppTntu.bucket.addItemToBucket(tmpl.data.publication._id);
+        cookieBucket.addItemToBucket(tmpl.data.publication._id);
     }
 });

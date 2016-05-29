@@ -1,10 +1,11 @@
-AppTntu.bucket = {};
+import notify from '/client/notify.js';
+var bucket = {};
 
-AppTntu.bucket.addItemToBucket = function (bookId) {
+bucket.addItemToBucket = function (bookId) {
     if (Meteor.user()) {
         Meteor.call('addItemToBucket', bookId, function (err, res) {
             if (err) {
-                AppTntu.notify(err.message);
+                notify(err.message);
             } else {
                 Materialize.toast('Item was added to the bucket', 3000);
             }
@@ -14,11 +15,11 @@ AppTntu.bucket.addItemToBucket = function (bookId) {
     }
 };
 
-AppTntu.bucket.changeAmountOfItem = function (bookId, amount) {
+bucket.changeAmountOfItem = function (bookId, amount) {
     if (Meteor.user()) {
         Meteor.call('changeAmountOfItem', bookId, amount, function (err, res) {
             if (err) {
-                AppTntu.notify(err.message);
+                notify(err.message);
             }
         });
     } else {
@@ -26,11 +27,11 @@ AppTntu.bucket.changeAmountOfItem = function (bookId, amount) {
     }
 };
 
-AppTntu.bucket.removeItemFromBucket = function (bookId) {
+bucket.removeItemFromBucket = function (bookId) {
     if (Meteor.user()) {
         Meteor.call('removeItemFromBucket', bookId, function (err, res) {
             if (err) {
-                AppTntu.notify(err.message);
+                notify(err.message);
             } else {
                 Materialize.toast('Item was removed from the bucket', 3000);
             }
@@ -40,11 +41,11 @@ AppTntu.bucket.removeItemFromBucket = function (bookId) {
     }
 };
 
-AppTntu.bucket.clearBucket = function () {
+bucket.clearBucket = function () {
     if (Meteor.user()) {
         Meteor.call('clearBucket', function (err, res) {
             if (err) {
-                AppTntu.notify(err.message);
+                notify(err.message);
             } else {
                 Materialize.toast('Bucket was cleared', 3000);
             }
@@ -54,7 +55,7 @@ AppTntu.bucket.clearBucket = function () {
     }
 };
 
-AppTntu.bucket.placeOrder = function () {
+bucket.placeOrder = function () {
     var openPlaceOrderModal = function () {
         var data = {
             onConfirm: function (deliveryInfo) {
@@ -75,13 +76,13 @@ AppTntu.bucket.placeOrder = function () {
                 }
             });
         } else {
-            var bucketItems = AppTntu.bucket.getBucketItemsFromCookie();
+            var bucketItems = bucket.getBucketItemsFromCookie();
             Meteor.call('placeOrderNotLogged', bucketItems, deliveryInfo,
                 function (err, res) {
                     if (err) {
-                        AppTntu.notify(err.message);
+                        notify(err.message);
                     } else {
-                        AppTntu.bucket.clearBucket();
+                        bucket.clearBucket();
                         FlowRouter.go('orderView', {id: res});
                         addOrderIdToCookie(res);
                     }
@@ -92,13 +93,13 @@ AppTntu.bucket.placeOrder = function () {
     openPlaceOrderModal();
 };
 
-AppTntu.bucket.getBucketItemsFromCookie = function () {
+bucket.getBucketItemsFromCookie = function () {
     var rawValue = Cookie.get('bucket');
     return rawValue ? JSON.parse(rawValue) : [];
 };
 
 var changeBucketInCookie = function (bookId, amount, remove) {
-    var itemsInBucket = AppTntu.bucket.getBucketItemsFromCookie();
+    var itemsInBucket = bucket.getBucketItemsFromCookie();
     itemsInBucket = _.isArray(itemsInBucket) ? itemsInBucket : [];
 
     var existedItem = _.find(itemsInBucket, function (itemItem) {
@@ -135,3 +136,5 @@ var addOrderIdToCookie = function (id) {
     currentOrdersIds.push(id);
     Cookie.set('ordersIds', JSON.stringify(currentOrdersIds));
 };
+
+export default bucket;

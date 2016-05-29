@@ -1,3 +1,5 @@
+import notify from '/client/notify.js';
+
 Template.checkoutCredentialsCreateEdit.events({
     'submit form': function (event, tmpl) {
         var getValuesFromForm = function () {
@@ -25,7 +27,7 @@ Template.checkoutCredentialsCreateEdit.events({
             doc._id = tmpl.data.checkoutCredentials._id;
             Meteor.call('editCheckoutCredentials', doc, function (err, res) {
                 if (err) {
-                    AppTntu.notify(err.message);
+                    notify(err.message);
                 } else {
                     FlowRouter.go('checkoutCredentialsList');
                 }
@@ -33,7 +35,7 @@ Template.checkoutCredentialsCreateEdit.events({
         } else {
             Meteor.call('addNewCheckoutCredentials', doc, function (err, res) {
                 if (err) {
-                    AppTntu.notify(err.message);
+                    notify(err.message);
                 } else {
                     FlowRouter.go('checkoutCredentialsList');
                 }

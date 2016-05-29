@@ -1,3 +1,5 @@
+import canUser from '/both/user-permissions.js';
+
 Template.createPublicationMainView.onCreated(function () {
     var self = this;
 
@@ -5,7 +7,7 @@ Template.createPublicationMainView.onCreated(function () {
         FlowRouter.go('publicationsList');
     }, 1);
     this.autorun(function () {
-        if (!AppTntu.canUser('createPublication', Meteor.userId())) {
+        if (!canUser('createPublication', Meteor.userId())) {
             self.redirect();
         }
     });

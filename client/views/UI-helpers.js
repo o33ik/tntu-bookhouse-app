@@ -2,6 +2,7 @@ import moment from 'moment';
 import Authors from '/both/collections/authors.js';
 import Images from '/client/cfs-collections/images.js';
 import PublicationsPdf from '/client/cfs-collections/publications-pdf.js';
+import canUser from '/both/user-permissions.js';
 
 UI.registerHelper('isAdmin', function () {
     return Roles.userIsInRole(Meteor.userId(), 'admin')
@@ -41,7 +42,7 @@ UI.registerHelper('bookAuthorsNames', function (addedAuthorsIds) {
 
 UI.registerHelper('canUser', function (action, group) {
     var userId = Meteor.userId();
-    return AppTntu.canUser(action, userId, group);
+    return canUser(action, userId, group);
 });
 
 

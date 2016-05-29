@@ -1,4 +1,5 @@
 import Publications from '/both/collections/publications.js';
+import notify from '/client/notify.js';
 
 Template.publicationsListMainView.onCreated(function () {
     this.query = new ReactiveVar({});
@@ -41,7 +42,7 @@ Template.publicationsListMainView.onCreated(function () {
         if (searchString) {
             Meteor.call('getAuthorsIdsBySearchString', searchString, function (err, res) {
                 if (err) {
-                    AppTntu.notify(err.message);
+                    notify(err.message);
                 } else {
                     var regex = {$regex: searchString, $options: 'gim'};
                     query.$or = [

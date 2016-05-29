@@ -1,4 +1,4 @@
-var PublicationChecker = Match.Where(function (publication) {
+export default Match.Where(function (publication) {
     check(publication, {
         _id: Match.Optional(String),
         title: String,
@@ -28,9 +28,4 @@ var PublicationChecker = Match.Where(function (publication) {
     });
 
     return true;
-});
-
-Meteor.startup(function () {
-    AppTntu.documentsCheckers = AppTntu.documentsCheckers || {};
-    AppTntu.documentsCheckers.publication = PublicationChecker;
 });

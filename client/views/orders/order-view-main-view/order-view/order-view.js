@@ -1,4 +1,5 @@
 import Publications from '/both/collections/publications.js';
+import notify from '/client/notify.js';
 
 Template.orderView.onCreated(function () {
 });
@@ -21,7 +22,7 @@ Template.orderView.events({
     'click .confirm-paid-button': function (event, tmpl) {
         Meteor.call('confirmOrder', tmpl.data.order._id, function (err, res) {
             if (err) {
-                AppTntu.notify(err.message);
+                notify(err.message);
             } else {
                 console.log(res);
             }

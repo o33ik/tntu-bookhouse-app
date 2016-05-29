@@ -1,8 +1,9 @@
 import CheckoutCredentials from '/both/collections/checkout-credentials.js';
+import canUser from '/both/user-permissions.js';
 
 Meteor.methods({
     'addNewCheckoutCredentials': function (data) {
-        if (!AppTntu.canUser('addCheckoutCredentials', this.userId)) {
+        if (!canUser('addCheckoutCredentials', this.userId)) {
             throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
         var id = CheckoutCredentials.insert(data);
@@ -11,7 +12,7 @@ Meteor.methods({
     },
 
     'editCheckoutCredentials': function (data) {
-        if (!AppTntu.canUser('addCheckoutCredentials', this.userId)) {
+        if (!canUser('addCheckoutCredentials', this.userId)) {
             throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
 
@@ -24,14 +25,14 @@ Meteor.methods({
     },
 
     'removeCheckoutCredentials': function (id) {
-        if (!AppTntu.canUser('addCheckoutCredentials', this.userId)) {
+        if (!canUser('addCheckoutCredentials', this.userId)) {
             throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
         CheckoutCredentials.remove(id);
     },
 
     'setActiveCheckoutCredentials': function (id) {
-        if (!AppTntu.canUser('addCheckoutCredentials', this.userId)) {
+        if (!canUser('addCheckoutCredentials', this.userId)) {
             throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
         CheckoutCredentials.update({isActive: true}, {$set: {isActive: false}});

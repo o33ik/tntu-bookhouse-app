@@ -1,4 +1,5 @@
 import Publications from '/both/collections/publications.js';
+import canUser from '/both/user-permissions.js';
 
 Template.editPublicationMainView.onCreated(function () {
     var self = this;
@@ -7,7 +8,7 @@ Template.editPublicationMainView.onCreated(function () {
         FlowRouter.go('publicationsList');
     }, 1);
     this.autorun(function () {
-        if (!AppTntu.canUser('editPublication', Meteor.userId())) {
+        if (!canUser('editPublication', Meteor.userId())) {
             self.redirect();
         }
     });

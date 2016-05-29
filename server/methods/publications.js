@@ -1,14 +1,16 @@
 import Publications from '/both/collections/publications.js';
 import PublicationsPdf from '/server/cfs-collections/publications-pdf.js';
 import Images from '/server/cfs-collections/images.js';
+import publicationChecker from '/both/document-checkers/publications-checker.js';
+import canUser from '/both/user-permissions.js';
 
 Meteor.methods({
     'createPublication': function (publicationObject, imageBase64, pdfBase64) {
-        if (!AppTntu.canUser('createPublication', Meteor.userId())) {
+        if (!canUser('createPublication', Meteor.userId())) {
             throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
 
-        check(publicationObject, AppTntu.documentsCheckers.publication);
+        check(publicationObject, publicationChecker);
 
         if (imageBase64) {
             publicationObject.imageId = Images.insert(imageBase64)._id;
@@ -24,7 +26,7 @@ Meteor.methods({
     },
 
     'editPublication': function (publicationObject, imageBase64, pdfBase64) {
-        if (!AppTntu.canUser('editPublication', Meteor.userId())) {
+        if (!canUser('editPublication', Meteor.userId())) {
             throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
 
@@ -47,7 +49,7 @@ Meteor.methods({
     },
 
     'changePublicationStatus': function (publicationId, shouldBeHidden) {
-        if (!AppTntu.canUser('changePublicationStatus', Meteor.user())) {
+        if (!canUser('changePublicationStatus', Meteor.user())) {
             throw new Meteor.Error('Permission Error', 'You don\'t have permissions to do this!');
         }
 
@@ -58,13 +60,5 @@ Meteor.methods({
             modifier.$unset = {isHidden: false};
         }
         Publications.update(publicationId, modifier);
-
-        //var targetPublication = Publications.findOne(publicationId);
-        //if (targetPublication) {
-            //Images.remove(targetPublication.imageId);
-            //PublicationsPdf.remove(targetPublication.pdfId);
-            //
-            //return Publications.remove(publicationId);
-        //}
     }
 });

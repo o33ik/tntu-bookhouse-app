@@ -1,3 +1,5 @@
+import notify from '/client/notify.js';
+
 Template.createAuthorModal.onCreated(function () {
     var self = this;
     this.removeTemplate = function () {
@@ -26,7 +28,7 @@ Template.createAuthorModal.events({
 
         Meteor.call('createAuthor', authorDocument, function (err, res) {
             if (err) {
-                AppTntu.notify(err.message);
+                notify(err.message);
             } else {
                 tmpl.data.addAuthor(res);
                 tmpl.removeTemplate();

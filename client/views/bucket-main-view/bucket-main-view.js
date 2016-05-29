@@ -1,4 +1,5 @@
 import Buckets from '/both/collections/buckets.js';
+import cookieBucket from '/client/bucket-methods.js';
 
 Template.bucketMainView.onCreated(function () {
     var self = this;
@@ -6,7 +7,7 @@ Template.bucketMainView.onCreated(function () {
     if (Meteor.userId()) {
         this.subscribe('bucket');
     } else {
-        var bucketItems = AppTntu.bucket.getBucketItemsFromCookie();
+        var bucketItems = cookieBucket.getBucketItemsFromCookie();
         var bucketItemsIds = _.map(bucketItems, function (item) {
             return item.id;
         });
@@ -22,7 +23,7 @@ Template.bucketMainView.onCreated(function () {
             bucketItems = bucket ? bucket.addedBooks : [];
         } else {
             self.itemsWasChanged.get();
-            bucketItems = AppTntu.bucket.getBucketItemsFromCookie();
+            bucketItems = cookieBucket.getBucketItemsFromCookie();
         }
         var sortedItems = _.sortBy(bucketItems, 'addedAt');
         self.bucketItems.set(sortedItems);

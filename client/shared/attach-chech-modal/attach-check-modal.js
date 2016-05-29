@@ -1,3 +1,5 @@
+import notify from '/client/notify.js';
+
 Template.attachCheckModal.onCreated(function () {
     this.removeTemplate = function (view) {
         setTimeout(function () {
@@ -34,7 +36,7 @@ Template.attachCheckModal.events({
         Meteor.call('attachCheckToOrder', tmpl.data.order._id, tmpl.imageBase64,
             function (err, res) {
                 if (err) {
-                    AppTntu.notify(err.message);
+                    notify(err.message);
                 }
             });
 

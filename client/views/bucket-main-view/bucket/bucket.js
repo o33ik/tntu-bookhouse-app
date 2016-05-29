@@ -1,4 +1,5 @@
 import Publications from '/both/collections/publications.js';
+import cookieBucket from '/client/bucket-methods.js';
 
 Template.bucket.onCreated(function () {
 });
@@ -22,11 +23,11 @@ Template.bucket.helpers({
 
 Template.bucket.events({
     'click .clear-bucket-button': function (event, tmpl) {
-        AppTntu.bucket.clearBucket();
+        cookieBucket.clearBucket();
         tmpl.data.reloadItemsFromTheBucket();
     },
 
     'click .place-order-button': function () {
-        AppTntu.bucket.placeOrder();
+        cookieBucket.placeOrder();
     }
 });

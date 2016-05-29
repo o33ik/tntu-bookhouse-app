@@ -1,3 +1,5 @@
+import canUser from '/both/user-permissions.js';
+
 Template.checkoutCredentialsCreateMainView.onCreated(function () {
     var self = this;
 
@@ -5,7 +7,7 @@ Template.checkoutCredentialsCreateMainView.onCreated(function () {
         FlowRouter.go('publicationsList');
     }, 1);
     this.autorun(function () {
-        if (!AppTntu.canUser('addCheckoutCredentials', Meteor.userId())) {
+        if (!canUser('addCheckoutCredentials', Meteor.userId())) {
             self.redirect();
         }
     });

@@ -1,4 +1,5 @@
 import Publications from '/both/collections/publications.js';
+import cookieBucket from '/client/bucket-methods.js';
 
 Template.bucketListItem.onCreated(function () {
     var self = this;
@@ -28,12 +29,12 @@ Template.bucketListItem.events({
 
     'change .amount': function (event, tmpl) {
         var newValue = parseInt(event.target.value);
-        AppTntu.bucket.changeAmountOfItem(tmpl.data.bucketItem.id, newValue);
+        cookieBucket.changeAmountOfItem(tmpl.data.bucketItem.id, newValue);
         tmpl.data.reloadItemsFromTheBucket();
     },
 
     'click .delete-icon': function (event, tmpl) {
-        AppTntu.bucket.removeItemFromBucket(tmpl.data.bucketItem.id);
+        cookieBucket.removeItemFromBucket(tmpl.data.bucketItem.id);
         tmpl.data.reloadItemsFromTheBucket();
     }
 });

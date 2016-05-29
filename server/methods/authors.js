@@ -1,8 +1,9 @@
 import Authors from '/both/collections/authors.js';
+import canUser from '/both/user-permissions.js';
 
 Meteor.methods({
     'createAuthor': function (author) {
-        if (!AppTntu.canUser('createAuthor', Meteor.userId())) {
+        if (!canUser('createAuthor', Meteor.userId())) {
             throw new Meteor.Error('You don\'t have permissions to do this!');
         }
 

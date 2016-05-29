@@ -1,3 +1,5 @@
+import cookieBucket from '/client/bucket-methods.js';
+
 Template.publicationListItem.onCreated(function () {
 });
 
@@ -10,7 +12,7 @@ Template.publicationListItem.events({
     'click .buy-button': function (event, tmpl) {
         var $button = $(event.currentTarget);
         $button.prop('disabled', true);
-        AppTntu.bucket.addItemToBucket(tmpl.data.publication._id);
+        cookieBucket.addItemToBucket(tmpl.data.publication._id);
         setTimeout(function () {
             $button.prop('disabled', false);
         }, 1000);
