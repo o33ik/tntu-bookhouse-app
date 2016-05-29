@@ -1,5 +1,7 @@
 Template.topNavBar.onRendered(function () {
-    this.$(".button-collapse").sideNav();
+    this.$(".button-collapse").sideNav({
+        menuWidth: 300
+    });
     this.$('.collapsible').collapsible();
 
     this.closeSideNav = function () {
