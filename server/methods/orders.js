@@ -40,12 +40,12 @@ Meteor.methods({
         Orders.update(orderId, {$unset: {checkImageId: false}, $set: {status: 'placed'}});
     },
 
-    'confirmOrder': function (orderId) {
+    'confirmOrder': function (orderId, ttn) {
         if (!Roles.userIsInRole(this.userId, 'admin')) {
             throw new Meteor.Error('Permission error', 'You can\'t confirm orders!');
         }
 
-        Orders.update(orderId, {$set: {status: 'paid'}})
+        confirmOrder(orderId, ttn);
     }
 });
 
@@ -109,7 +109,7 @@ var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
                 paymentInfo: paymentInfoHtml
             };
 
-            var mailTemplate = Handlebars.templates['email-template'];
+            var mailTemplate = Handlebars.templates['order-created-email-template'];
             return mailTemplate(templateData);
         };
 
@@ -145,4 +145,38 @@ var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
 
     Meteor.call('clearBucket');
     return orderId;
+};
+
+var confirmOrder = function (orderId, ttn) {
+    var sendMail = function (orderId) {
+        var generateEmailHtml = function (order) {
+            var rootUrl = process.env.ROOT_URL;
+            if (!/\/$/.test(rootUrl)) {
+                rootUrl = rootUrl + '/';
+            }
+            var orderUrl = rootUrl + 'orders/view/' + order._id;
+
+
+            var templateData = {
+                orderURL: orderUrl,
+                novaPostaTrackUrl: `https://novaposhta.ua/tracking/?cargo_number=${order.ttn}`,
+                ttn: order.ttn
+            };
+
+            var mailTemplate = Handlebars.templates['order-confirmed-email-template'];
+            return mailTemplate(templateData);
+        };
+
+        var targetOrder = Orders.findOne(orderId);
+
+        Email.send({
+            to: targetOrder.deliveryInfo.email,
+            from: 'tntu@bookhouse.com',
+            subject: 'Замовлення підтверджено',
+            html: generateEmailHtml(targetOrder)
+        });
+    };
+
+    Orders.update(orderId, {$set: {status: 'paid', ttn: ttn}});
+    sendMail(orderId);
 };

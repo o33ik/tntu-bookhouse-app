@@ -36,6 +36,10 @@
                         </div>
 
                         <div class="single">
+                            <h6 class="pointer"><a class="payment-info underline-hover">{{_ "paymentInfo"}}</a></h6>
+                        </div>
+
+                        <div class="single">
                             <h6>{{_ "deliveryInfo"}}:</h6>
 
                             <p>{{order.deliveryInfo.name}}</p>
@@ -44,6 +48,14 @@
 
                             <p>{{order.deliveryInfo.address}}</p>
                         </div>
+
+                        {{#if order.ttn}}
+                            <div class="single">
+                                <h6>{{_ "orderTtn"}}:</h6>
+
+                                <p>{{order.ttn}}</p>
+                            </div>
+                        {{/if}}
                     </div>
                 </div>
 
@@ -72,8 +84,10 @@
             {{#if equal order.status "placed"}}
                 <a class="attach-check-button btn">{{_ "attachCheckToOrder"}}</a>
             {{/if}}
-            {{#if isAdmin}}
-                <a class="confirm-paid-button btn">{{_ "confirmPaid"}}</a>
+            {{#if equal order.status "waitingConfirmation"}}
+                {{#if isAdmin}}
+                    <a class="confirm-paid-button btn">{{_ "confirmPaid"}}</a>
+                {{/if}}
             {{/if}}
         </div>
     </div>

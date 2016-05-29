@@ -61,7 +61,7 @@
 
   "totalPrice": "Загальна вартість",
   "clearBucket": "Очистити корзину",
-  "placeOrder": "Зробити замовлення",
+  "placeOrder": "Замовити",
   "bucketIsEmpty": "Корзина порожня",
 
   "amount": "Кількість",
@@ -114,7 +114,7 @@
   "hidePublication": "Приховати",
   "showPublication": "Показати",
 
-  "paymentInfo": "Інформація про оплату",
+  "paymentInfo": "Реквізити на оплату",
 
   "orderBy": "Замовлення від",
 
@@ -126,5 +126,10 @@
 
   "itemAddedToBucket": "Додано в корзину",
   "itemRemovedFromBucket": "Видалено з корзини",
-  "bucketCleared": "Корзина очищена"
+  "bucketCleared": "Корзина очищена",
+
+  "writeTtn": "Номер ТТН відправлення",
+  "invallidTtn": "Номер ТТН введено неправильно",
+
+  "orderTtn": "ТТН"
 }

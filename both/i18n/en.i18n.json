@@ -128,5 +128,10 @@
 
   "itemAddedToBucket": "Added to the bucket",
   "itemRemovedFromBucket": "Removed from the bucket",
-  "bucketCleared": "Bucket was cleared"
+  "bucketCleared": "Bucket was cleared",
+
+  "writeTtn": "Tracking number",
+  "invallidTtn": "Waybill is invalid",
+
+  "orderTtn": "Waybill"
 }

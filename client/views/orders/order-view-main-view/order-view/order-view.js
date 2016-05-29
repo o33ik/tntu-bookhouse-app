@@ -20,11 +20,24 @@ Template.orderView.events({
     },
 
     'click .confirm-paid-button': function (event, tmpl) {
-        Meteor.call('confirmOrder', tmpl.data.order._id, function (err, res) {
-            if (err) {
-                notify(err.message);
+        swal({
+            title: TAPi18n.__('writeTtn'),
+            type: "input",
+            showCancelButton: true,
+            animation: "slide-from-top",
+            closeOnConfirm: false
+        }, function (inputValue) {
+            if (/\d{14}/.test(inputValue)) {
+                Meteor.call('confirmOrder', tmpl.data.order._id, inputValue, function (err, res) {
+                    if (err) {
+                        notify(err.message);
+                    } else {
+                        console.log(res);
+                    }
+                });
+                swal.close();
             } else {
-                console.log(res);
+                swal(TAPi18n.__('error'), TAPi18n.__('invallidTtn'), "error");
             }
         });
     },
