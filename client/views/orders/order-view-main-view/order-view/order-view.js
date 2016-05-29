@@ -22,9 +22,9 @@ Template.orderView.events({
     'click .confirm-paid-button': function (event, tmpl) {
         swal({
             title: TAPi18n.__('writeTtn'),
-            type: "input",
+            type: 'input',
             showCancelButton: true,
-            animation: "slide-from-top",
+            animation: 'slide-from-top',
             closeOnConfirm: false
         }, function (inputValue) {
             if (/\d{14}/.test(inputValue)) {
@@ -32,12 +32,11 @@ Template.orderView.events({
                     if (err) {
                         notify(err.message);
                     } else {
-                        console.log(res);
+                        swal.close();
                     }
                 });
-                swal.close();
             } else {
-                swal(TAPi18n.__('error'), TAPi18n.__('invallidTtn'), "error");
+                swal(TAPi18n.__('error'), TAPi18n.__('invallidTtn'), 'error');
             }
         });
     },
@@ -50,9 +49,9 @@ Template.orderView.events({
         swal({
             title: TAPi18n.__('deleteImage'),
             text: TAPi18n.__('deleteMessageQuestion'),
-            type: "warning",
+            type: 'warning',
             showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
+            confirmButtonColor: '#DD6B55',
             confirmButtonText: TAPi18n.__('yesDelete'),
             closeOnConfirm: true
         }, function () {

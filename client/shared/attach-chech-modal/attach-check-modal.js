@@ -25,8 +25,12 @@ Template.attachCheckModal.events({
             tmpl.imageBase64 = event.target.result;
         };
 
-        if (event.target.files[0]) {
-            reader.readAsDataURL(event.target.files[0]);
+        var file = event.target.files[0];
+        if (file && file.size < 2 * 1000 * 1000) {
+            reader.readAsDataURL(file);
+        } else {
+            notify(TAPi18n.__('fileShouldBeLess') + ' 2Mb');
+            tmpl.$('#check-input').val('');
         }
     },
 
@@ -37,10 +41,10 @@ Template.attachCheckModal.events({
             function (err, res) {
                 if (err) {
                     notify(err.message);
+                } else {
+                    tmpl.removeTemplate(tmpl.view);
                 }
             });
-
-        tmpl.removeTemplate(tmpl.view);
     },
     'click .cancel': function (event, tmpl) {
         event.preventDefault();

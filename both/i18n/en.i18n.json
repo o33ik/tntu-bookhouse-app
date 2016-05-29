@@ -132,6 +132,8 @@
 
   "writeTtn": "Tracking number",
   "invallidTtn": "Waybill is invalid",
+  "success": "Success",
+  "imageUploaded": "Image uploaded",
 
   "orderTtn": "Waybill"
 }
