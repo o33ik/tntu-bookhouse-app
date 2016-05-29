@@ -1,3 +1,5 @@
+import Publications from '/both/collections/publications.js';
+
 Template.publicationsListMainView.onCreated(function () {
     this.query = new ReactiveVar({});
     this.sortOptions = new ReactiveVar({});

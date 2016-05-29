@@ -1,1 +1,1 @@
-CheckoutCredentials = new Mongo.Collection('checkout_credentials');
+export default new Mongo.Collection('checkout_credentials');

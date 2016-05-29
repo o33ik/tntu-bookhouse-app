@@ -1,3 +1,5 @@
+import Publications from '/both/collections/publications.js';
+
 Template.orderView.onCreated(function () {
 });
 

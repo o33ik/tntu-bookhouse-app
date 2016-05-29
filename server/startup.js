@@ -1,3 +1,5 @@
+import CheckoutCredentials from '/both/collections/checkout-credentials.js';
+
 var createDefaultCheckoutCredentials = function () {
     if (CheckoutCredentials.find().count() > 0) {
         return;

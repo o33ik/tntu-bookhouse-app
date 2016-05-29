@@ -1,3 +1,5 @@
+import Authors from '/both/collections/authors.js';
+
 Template.bookAuthorsWithLinkForFilter.helpers({
     authorNameById: function (id) {
         var author = Authors.findOne(id);

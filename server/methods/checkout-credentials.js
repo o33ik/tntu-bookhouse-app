@@ -1,3 +1,5 @@
+import CheckoutCredentials from '/both/collections/checkout-credentials.js';
+
 Meteor.methods({
     'addNewCheckoutCredentials': function (data) {
         if (!AppTntu.canUser('addCheckoutCredentials', this.userId)) {

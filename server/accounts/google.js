@@ -1,3 +1,5 @@
+import Buckets from '/both/collections/buckets.js';
+
 ServiceConfiguration.configurations.remove({
     service: "google"
 });

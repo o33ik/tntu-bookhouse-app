@@ -1,3 +1,5 @@
+import Authors from '/both/collections/authors.js';
+
 Meteor.methods({
     'createAuthor': function (author) {
         if (!AppTntu.canUser('createAuthor', Meteor.userId())) {

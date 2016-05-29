@@ -1,3 +1,8 @@
+import moment from 'moment';
+import Authors from '/both/collections/authors.js';
+import Images from '/client/cfs-collections/images.js';
+import PublicationsPdf from '/client/cfs-collections/publications-pdf.js';
+
 UI.registerHelper('isAdmin', function () {
     return Roles.userIsInRole(Meteor.userId(), 'admin')
 });

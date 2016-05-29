@@ -1,3 +1,6 @@
+import Publications from '/both/collections/publications.js';
+import Buckets from '/both/collections/buckets.js';
+
 Meteor.methods({
     'addItemToBucket': function (bookId) {
         check(bookId, String);

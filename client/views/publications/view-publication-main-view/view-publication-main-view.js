@@ -1,3 +1,5 @@
+import Publications from '/both/collections/publications.js';
+
 Template.viewPublicationMainView.onCreated(function () {
     var self = this;
     this.autorun(function () {

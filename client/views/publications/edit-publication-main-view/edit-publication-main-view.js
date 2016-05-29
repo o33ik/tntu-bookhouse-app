@@ -1,3 +1,5 @@
+import Publications from '/both/collections/publications.js';
+
 Template.editPublicationMainView.onCreated(function () {
     var self = this;
 

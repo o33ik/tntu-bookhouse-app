@@ -1,3 +1,7 @@
+import Publications from '/both/collections/publications.js';
+import Buckets from '/both/collections/buckets.js';
+import Images from '/server/cfs-collections/images.js';
+
 Meteor.publishComposite('bucket', function () {
     return {
         find: function () {

@@ -1,3 +1,5 @@
+import Buckets from '/both/collections/buckets.js';
+
 Template.bucketMainView.onCreated(function () {
     var self = this;
 

@@ -4,7 +4,7 @@ var pdfDropboxStore = new FS.Store.Dropbox("publications-pdf", {
     token: Meteor.settings.private.DROPBOX.token
 });
 
-PublicationsPdf = new FS.Collection("publications-pdf", {
+export default new FS.Collection("publications-pdf", {
     stores: [pdfDropboxStore],
     filter: {
         allow: {

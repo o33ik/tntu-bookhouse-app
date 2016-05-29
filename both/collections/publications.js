@@ -1,1 +1,1 @@
-Publications = new Mongo.Collection('publications');
+export default new Mongo.Collection('publications');

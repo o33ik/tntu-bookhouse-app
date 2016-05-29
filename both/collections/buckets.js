@@ -1,1 +1,1 @@
-Buckets = new Mongo.Collection('buckets');
+export default new Mongo.Collection('buckets');

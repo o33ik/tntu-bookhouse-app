@@ -22,7 +22,6 @@ kadira:flow-router
 kadira:blaze-layout
 alanning:roles
 underscore
-momentjs:moment
 reactive-var
 manuel:reactivearray
 reywood:publish-composite
@@ -48,4 +47,3 @@ standard-minifier-css
 standard-minifier-js
 fastclick
 cmather:handlebars-server
-gfk:mailgun-api

@@ -4,7 +4,7 @@ var imagesDropboxStore = new FS.Store.Dropbox("images", {
     token: Meteor.settings.private.DROPBOX.token
 });
 
-Images = new FS.Collection("images", {
+export default new FS.Collection("images", {
     stores: [imagesDropboxStore],
     filter: {
         allow: {

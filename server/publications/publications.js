@@ -1,3 +1,8 @@
+import Publications from '/both/collections/publications.js';
+import Authors from '/both/collections/authors.js';
+import PublicationsPdf from '/server/cfs-collections/publications-pdf.js';
+import Images from '/server/cfs-collections/images.js';
+
 Meteor.publishComposite('publications', function (query, options) {
     return {
         find: function () {

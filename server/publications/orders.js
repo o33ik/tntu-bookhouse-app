@@ -1,3 +1,7 @@
+import Orders from '/both/collections/orders.js';
+import Publications from '/both/collections/publications.js';
+import Images from '/server/cfs-collections/images.js';
+
 Meteor.publishComposite('orderItem', function (id) {
     return {
         find: function () {

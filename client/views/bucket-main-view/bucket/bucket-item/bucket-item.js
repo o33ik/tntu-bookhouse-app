@@ -1,3 +1,5 @@
+import Publications from '/both/collections/publications.js';
+
 Template.bucketListItem.onCreated(function () {
     var self = this;
     self.publicationItem = new ReactiveVar({});

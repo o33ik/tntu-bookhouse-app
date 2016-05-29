@@ -1,3 +1,5 @@
+import Publications from '/both/collections/publications.js';
+
 Template.orderListItem.helpers({
     orderItem: function (orderId) {
         return Publications.findOne(orderId);

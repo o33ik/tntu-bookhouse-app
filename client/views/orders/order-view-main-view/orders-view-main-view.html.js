@@ -1,3 +1,5 @@
+import Orders from '/both/collections/orders.js';
+
 Template.orderViewMainView.onCreated(function () {
     var self = this;
     this.autorun(function () {

@@ -1,3 +1,7 @@
+import Publications from '/both/collections/publications.js';
+import PublicationsPdf from '/server/cfs-collections/publications-pdf.js';
+import Images from '/server/cfs-collections/images.js';
+
 Meteor.methods({
     'createPublication': function (publicationObject, imageBase64, pdfBase64) {
         if (!AppTntu.canUser('createPublication', Meteor.userId())) {

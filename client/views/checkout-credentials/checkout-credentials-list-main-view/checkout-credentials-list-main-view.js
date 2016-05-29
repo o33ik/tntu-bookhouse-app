@@ -1,3 +1,5 @@
+import CheckoutCredentials from '/both/collections/checkout-credentials.js';
+
 Template.checkoutCredentialsListMainView.onCreated(function () {
     var self = this;
 

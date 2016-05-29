@@ -1,6 +1,8 @@
+import Images from '/client/cfs-collections/images.js';
+import PublicationsPdf from '/client/cfs-collections/publications-pdf.js';
+
 Template.createEditPublication.onCreated(function () {
     var self = this;
-
 
     this.onSubmit = _.debounce(function (event, tmpl) {
         var getValuesFromForm = function () {

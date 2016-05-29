@@ -1,3 +1,5 @@
+import Authors from '/both/collections/authors.js';
+
 Template.addAuthor.onCreated(function () {
     var self = this;
 

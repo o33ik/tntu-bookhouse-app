@@ -1,6 +1,6 @@
 var pdfDropboxStore = new FS.Store.Dropbox("publications-pdf");
 
-PublicationsPdf = new FS.Collection("publications-pdf", {
+export default new FS.Collection("publications-pdf", {
     stores: [pdfDropboxStore],
     filter: {
         allow: {

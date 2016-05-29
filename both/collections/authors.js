@@ -1,1 +1,1 @@
-Authors = new Mongo.Collection('authors');
+export default new Mongo.Collection('authors');

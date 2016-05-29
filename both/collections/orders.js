@@ -1,1 +1,1 @@
-Orders = new Mongo.Collection('orders');
+export default new Mongo.Collection('orders');

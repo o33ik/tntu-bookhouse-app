@@ -1,3 +1,9 @@
+import Orders from '/both/collections/orders.js';
+import Publications from '/both/collections/publications.js';
+import CheckoutCredentials from '/both/collections/checkout-credentials.js';
+import Buckets from '/both/collections/buckets.js';
+import Images from '/server/cfs-collections/images.js';
+
 Meteor.methods({
     'placeOrderLoggedIn': function (deliveryInfo) {
         var userId = this.userId;
