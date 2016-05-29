@@ -93,7 +93,7 @@ var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
             if (!/\/$/.test(rootUrl)) {
                 rootUrl = rootUrl + '/';
             }
-            var orderUrl = rootUrl + 'orders/' + orderId;
+            var orderUrl = rootUrl + 'orders/view/' + orderId;
 
             var paymentInfoHtml = order.paymentInfo;
 
@@ -134,7 +134,7 @@ var placeOrder = function (orderItems, deliveryInfo, forRegisteredUser) {
 
     var orderId = Orders.insert(order);
 
-    //sendEmail(orderId);
+    sendEmail(orderId);
 
     Meteor.call('clearBucket');
     return orderId;
