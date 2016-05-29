@@ -9,7 +9,6 @@ Template.attachCheckModal.onCreated(function () {
 });
 
 Template.attachCheckModal.onRendered(function () {
-
     this.$('#attach-check-modal').openModal();
     var self = this;
     $('.lean-overlay').on('click', function () {

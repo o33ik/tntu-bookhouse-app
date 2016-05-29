@@ -31,7 +31,7 @@ Meteor.methods({
 
         var imageId = Images.insert(imageBase64)._id;
 
-        Orders.update(orderId, {$set: {checkImageId: imageId, status: 'waitingConfirmation'}});
+        return Orders.update(orderId, {$set: {checkImageId: imageId, status: 'waitingConfirmation'}});
     },
 
     'deleteCheckFromOrder': function (orderId) {
@@ -45,7 +45,7 @@ Meteor.methods({
             throw new Meteor.Error('Permission error', 'You can\'t confirm orders!');
         }
 
-        confirmOrder(orderId, ttn);
+        return confirmOrder(orderId, ttn);
     }
 });
 
