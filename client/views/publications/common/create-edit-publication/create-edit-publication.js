@@ -167,7 +167,7 @@ Template.createEditPublication.events({
         var file = event.target.files[0];
         if (file) {
             if (file.size > 2 * 1000 * 1000) {
-                notify('File should be less that 2Mb');
+                notify(TAPi18n.__('fileShouldBeLess') + ' 2Mb');
             } else {
                 reader.readAsDataURL(file);
             }

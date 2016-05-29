@@ -35,12 +35,12 @@ Template.orderView.events({
 
     'click .delete-image': function (event, tmpl) {
         swal({
-            title: "qwe",
-            text: "You will not be able to recover this imaginary file!",
+            title: TAPi18n.__('deleteImage'),
+            text: TAPi18n.__('deleteMessageQuestion'),
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, delete it!",
+            confirmButtonText: TAPi18n.__('yesDelete'),
             closeOnConfirm: true
         }, function () {
             Meteor.call('deleteCheckFromOrder', tmpl.data.order._id);

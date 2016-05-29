@@ -7,7 +7,7 @@ bucket.addItemToBucket = function (bookId) {
             if (err) {
                 notify(err.message);
             } else {
-                Materialize.toast('Item was added to the bucket', 3000);
+                notify(TAPi18n.__('itemAddedToBucket'));
             }
         });
     } else {
@@ -33,7 +33,7 @@ bucket.removeItemFromBucket = function (bookId) {
             if (err) {
                 notify(err.message);
             } else {
-                Materialize.toast('Item was removed from the bucket', 3000);
+                notify(TAPi18n.__('itemRemovedFromBucket'));
             }
         });
     } else {
@@ -47,11 +47,12 @@ bucket.clearBucket = function () {
             if (err) {
                 notify(err.message);
             } else {
-                Materialize.toast('Bucket was cleared', 3000);
+                notify(TAPi18n.__('bucketCleared'));
             }
         });
     } else {
         Cookie.remove('bucket');
+        notify(TAPi18n.__('bucketCleared'));
     }
 };
 
@@ -123,9 +124,9 @@ var changeBucketInCookie = function (bookId, amount, remove) {
             existedItem.amount++;
         }
         itemsInBucket.push(existedItem);
-        Materialize.toast('Item was added to the bucket', 3000);
+        notify(TAPi18n.__('itemAddedToBucket'));
     } else {
-        Materialize.toast('Item was removed from the bucket', 3000);
+        notify(TAPi18n.__('itemRemovedFromBucket'));
     }
     Cookie.set('bucket', JSON.stringify(itemsInBucket));
 };

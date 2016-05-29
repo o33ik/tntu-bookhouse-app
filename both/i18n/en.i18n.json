@@ -118,5 +118,15 @@
 
   "paymentInfo": "Payment info",
 
-  "orderBy": "Order by"
+  "orderBy": "Order by",
+
+  "fileShouldBeLess": "File size should be less than",
+
+  "deleteImage": "Delete image",
+  "deleteMessageQuestion": "You sure that you wand delete it?",
+  "yesDelete": "Yes, delete it",
+
+  "itemAddedToBucket": "Added to the bucket",
+  "itemRemovedFromBucket": "Removed from the bucket",
+  "bucketCleared": "Bucket was cleared"
 }

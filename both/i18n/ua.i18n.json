@@ -116,5 +116,15 @@
 
   "paymentInfo": "Інформація про оплату",
 
-  "orderBy": "Замовлення від"
+  "orderBy": "Замовлення від",
+
+  "fileShouldBeLess": "Розмір файлу не повинен перевищувати",
+
+  "deleteImage": "Видалити зображення",
+  "deleteMessageQuestion": "Ви впевнені?",
+  "yesDelete": "Так, видаліть це!",
+
+  "itemAddedToBucket": "Додано в корзину",
+  "itemRemovedFromBucket": "Видалено з корзини",
+  "bucketCleared": "Корзина очищена"
 }
